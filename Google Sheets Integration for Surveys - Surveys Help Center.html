@@ -1,0 +1,1041 @@
+
+
+<!DOCTYPE html>
+<html>
+    
+<head>
+    <meta charset="utf-8"/>
+    <title>Google Sheets Integration for Surveys - Surveys Help Center</title>
+    <meta name="viewport" content="width=device-width, maximum-scale=1"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="format-detection" content="telephone=no">
+    <meta name="description" content="In this article: About the Google Sheets integration. Setting up Google Sheets for the first time. Testing Rules and viewing your responses in Google Sheets. Co"/>
+    <meta name="author" content="Delighted, LLC"/>
+    <link rel="canonical" href="https://surveys-help.helpscoutdocs.com/article/769-google-sheets-integration-for-surveys"/>
+    
+        
+   
+            <meta name="twitter:card" content="summary"/>
+            <meta name="twitter:title" content="Google Sheets Integration for Surveys" />
+            <meta name="twitter:description" content="In this article: About the Google Sheets integration. Setting up Google Sheets for the first time. Testing Rules and viewing your responses in Google Sheets. Co"/>
+
+
+    
+
+    
+        <link rel="stylesheet" href="//d3eto7onm69fcz.cloudfront.net/assets/stylesheets/launch-1709038297260.css">
+    
+    <style>
+        body { background: #f7f7f6; }
+        .navbar .navbar-inner { background: #f7f7f6; }
+        .navbar .nav li a, 
+        .navbar .icon-private-w  { color: #0f181e; }
+        .navbar .brand, 
+        .navbar .nav li a:hover, 
+        .navbar .nav li a:focus, 
+        .navbar .nav .active a, 
+        .navbar .nav .active a:hover, 
+        .navbar .nav .active a:focus  { color: #4e73fa; }
+        .navbar a:hover .icon-private-w, 
+        .navbar a:focus .icon-private-w, 
+        .navbar .active a .icon-private-w, 
+        .navbar .active a:hover .icon-private-w, 
+        .navbar .active a:focus .icon-private-w { color: #4e73fa; }
+        #serp-dd .result a:hover,
+        #serp-dd .result > li.active,
+        #fullArticle strong a,
+        #fullArticle a strong,
+        .collection a,
+        .contentWrapper a,
+        .most-pop-articles .popArticles a,
+        .most-pop-articles .popArticles a:hover span,
+        .category-list .category .article-count,
+        .category-list .category:hover .article-count { color: #4e73fa; }
+        #fullArticle, 
+        #fullArticle p, 
+        #fullArticle ul, 
+        #fullArticle ol, 
+        #fullArticle li, 
+        #fullArticle div, 
+        #fullArticle blockquote, 
+        #fullArticle dd, 
+        #fullArticle table { color:#0f181e; }
+    </style>
+    
+        <link rel="stylesheet" href="//delighted-static.s3.amazonaws.com/help-scout-docs/index-331378470b1f58d98f2b8ac49dd01f6c.css">
+    
+    <link rel="apple-touch-icon-precomposed" href="//d33v4339jhl8k0.cloudfront.net/docs/assets/5893d8f5dd8c8e73b3e9452c/images/64b8200957a4e8315e721805/apple-touch-icon-152-precomposed.png">
+    <link rel="shortcut icon" type="image/png" href="//d33v4339jhl8k0.cloudfront.net/docs/assets/5893d8f5dd8c8e73b3e9452c/images/64b82009d48f7f58ce212c04/favicon.ico">
+    <!--[if lt IE 9]>
+    
+        <script src="//d3eto7onm69fcz.cloudfront.net/assets/javascripts/html5shiv.min.js"></script>
+    
+    <![endif]-->
+    
+        <script type="application/ld+json">
+        {"@context":"https://schema.org","@type":"WebSite","url":"https://surveys-help.helpscoutdocs.com","potentialAction":{"@type":"SearchAction","target":"https://surveys-help.helpscoutdocs.com/search?query={query}","query-input":"required name=query"}}
+        </script>
+    
+        <script type="application/ld+json">
+        {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Surveys Help Center","item":"https://surveys-help.helpscoutdocs.com"},{"@type":"ListItem","position":2,"name":"Delighted Surveys","item":"https://surveys-help.helpscoutdocs.com/collection/725-delighted-surveys"},{"@type":"ListItem","position":3,"name":"Google Sheets Integration for Surveys","item":"https://surveys-help.helpscoutdocs.com/article/769-google-sheets-integration-for-surveys"}]}
+        </script>
+    
+    
+        <style>
+  #consent_blackbar {
+    position: fixed !important;
+    bottom: 0;
+    border-top: 1px solid #dddddd !important;
+    background-color: #ffffff !important;
+    z-index: 9999;
+  }
+  body>:not(#beacon-container) button.truste-button1, body>:not(#beacon-container) button.truste-button2 {
+    background: none !important;
+    border: 1px solid #e0e0d9 !important;
+    border-radius: 6px !important;
+    font-size: 14px !important;
+    padding: 5px !important;
+    background-color: white !important;
+    margin: 10px 0 !important;
+  }
+  body>:not(#beacon-container) .truste-left img{
+    margin-bottom: -5px !important;
+  }
+  .text-content {
+    padding-bottom: 10px !important;
+  }
+  #truste-consent-text {
+    font-size: 14px !important;
+    line-height: 20px !important;
+  }
+  #truste-consent-buttons button,
+  #truste-show-consent {
+    background: #1E94E8 !important;
+    color: #ffffff !important;
+    font-family: "Lausanne", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+  }
+</style>
+<script type="text/javascript">
+  (function() {
+    function customNavigationScript() {
+      let homeLink = document.getElementsByClassName("brand");
+      while (homeLink[0].firstChild) {
+        homeLink[0].removeChild(homeLink[0].firstChild);
+      }
+      let sp2 = document.getElementById("home");
+      sp2.innerHTML = '<a class="current surveys" href="https://surveys-help.delighted.com/">Surveys</a>';
+      let sp3 = document.getElementById("contact");
+      $(".search-query").attr("placeholder", "Search Surveys");
+      let parentDiv = document.getElementById("home").parentNode;
+      let gpDiv = parentDiv.parentNode;
+      let liTemplates = document.createElement('li');
+      liTemplates.id = 'templates';
+      liTemplates.innerHTML = '<a class="templates" href="https://help.delighted.com">Templates</a>';
+      let liPricing = document.createElement('li');
+      liPricing.id = 'pricing';
+      liPricing.innerHTML = '<a href="https://delighted.com/pricing">Pricing</a>';
+      let liSignin = document.createElement('li');
+      liSignin.id = 'signin';
+      liSignin.innerHTML = '<a href="https://app.delighted.com/signin" target="_blank" rel="noreferrer">Sign in</a>';
+      parentDiv.insertBefore(liTemplates, sp3);
+      parentDiv.insertBefore(liPricing, sp3);
+      parentDiv.appendChild(liSignin, sp3);
+      gpDiv.classList.add("show");
+    }
+    if (window.addEventListener) {
+      window.addEventListener("load", customNavigationScript, false);
+    } else if (window.attachEvent) {
+      window.attachEvent("onload", customNavigationScript);
+    }
+  })();
+</script>
+<script>
+  window.heap=window.heap||[],heap.load=function(e,t){window.heap.appid=e,window.heap.config=t=t||{};var r=t.forceSSL||"https:"===document.location.protocol,a=document.createElement("script");a.type="text/javascript",a.async=!0,a.src=(r?"https:":"http:")+"//cdn.heapanalytics.com/js/heap-"+e+".js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(a,n);for(var o=function(e){return function(){heap.push([e].concat(Array.prototype.slice.call(arguments,0)))}},p=["addEventProperties","addUserProperties","clearEventProperties","identify","removeEventProperty","setEventProperties","track","unsetEventProperty"],c=0;c<p.length;c++)heap[p[c]]=o(p[c])};
+  heap.load("1728408355");
+  heap.addEventProperties({
+    "Screen Dimensions": window.screen.width + " x " + window.screen.height,
+    "Screen Pixel Ratio": window.devicePixelRatio,
+    "Window Width": window.innerWidth,
+    "Window Height": window.innerHeight
+  });
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5HVL0RGW2V"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-5HVL0RGW2V');
+</script>
+<script>
+  var initHighlighting = function() {
+    if (initHighlighting.called) return;
+    initHighlighting.called = true;
+    var blocks = document.querySelectorAll("pre.code");
+    for (var i = 0; i < blocks.length; i++) hljs.highlightBlock(blocks[i]);
+  };
+  addEventListener("DOMContentLoaded", initHighlighting, false);
+  addEventListener("load", initHighlighting, false);
+</script>
+<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+<script type="text/javascript" src="https://cdn.weglot.com/weglot.min.js"></script>
+<script>
+  Weglot.initialize({
+    api_key: 'wg_7050858d869bbb003c30898bdab522356',
+    switchers: [
+    {
+    button_style: {
+        full_name: true,
+        with_name: true,
+        is_dropdown: true,
+        with_flags: true,
+        flag_type: "circle"
+    },
+    location: {
+        target: "footer",
+        sibling: null
+        }
+    }
+  ]
+  });
+</script>
+<script>
+setTimeout(function() {
+  var trustarcDiv = document.createElement("div");
+  trustarcDiv.id = 'consent_blackbar';
+  document.body.appendChild(trustarcDiv);
+  }, 4000);
+</script>
+<script>
+  setTimeout(function() {
+    var headID = document.getElementsByTagName("head")[0];
+    var newScript = document.createElement('script');
+    newScript.src = 'https://consent.trustarc.com/notice?noticeType=bb&domain=sap-delighted.com&c=teconsent&js=nj&text=true&privacypolicylink=https$3A$2F$2Fapp.delighted.com$2Fprivacy';
+    headID.appendChild(newScript);
+  }, 5000);
+</script>
+<script type="text/javascript">
+  !function(e,t,r,n){if(!e[n]){for(var a=e[n]=[],i=["survey","reset","config","init","set","get","event","identify","track","page","screen","group","alias"],s=0;s<i.length;s++){var c=i[s];a[c]=a[c]||function(e){return function(){var t=Array.prototype.slice.call(arguments);a.push([e,t])}}(c)}a.SNIPPET_VERSION="1.0.1";var o=t.createElement("script");o.type="text/javascript",o.async=!0,o.src="https://d2yyd1h5u9mauk.cloudfront.net/integrations/web/v1/library/"+r+"/"+n+".js";var p=t.getElementsByTagName("script")[0];p.parentNode.insertBefore(o,p)}}(window,document,"s6pAwY06zTnyJR2t","delightedCes");
+  delightedCes.survey({properties:{site:"Surveys"}
+  });
+</script>
+
+    
+</head>
+    
+    <body>
+        
+<header id="mainNav" class="navbar">
+    <div class="navbar-inner">
+        <div class="container-fluid">
+            <a class="brand" href="https://surveys-app.delighted.com">
+            
+                <span>Surveys Help Center</span>
+            
+            </a>
+            
+                <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                    <span class="sr-only">Toggle Navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            
+            <div class="nav-collapse collapse">
+                <nav role="navigation"><!-- added for accessibility -->
+                <ul class="nav">
+                    
+                        <li id="home"><a href="/">Help Center <b class="caret"></b></a></li>
+                    
+                    
+                    
+                        <li id="contact"><a href="#" class="contactUs" onclick="window.Beacon('open')">Contact</a></li>
+                        <li id="contactMobile"><a href="#" class="contactUs" onclick="window.Beacon('open')">Contact</a></li>
+                    
+                </ul>
+                </nav>
+            </div><!--/.nav-collapse -->
+        </div><!--/container-->
+    </div><!--/navbar-inner-->
+</header>
+        <section id="contentArea" class="container-fluid">
+            <div class="row-fluid">
+                <section id="main-content" class="span9">
+                    <div class="contentWrapper">
+                        
+    
+    <article id="fullArticle">
+        <h1 class="title">Google Sheets Integration for Surveys</h1>
+    
+        <a href="javascript:window.print()" class="printArticle" title="Print this article" aria-label="Print this Article"><i class="icon-print"></i></a>
+        <h3>In this article:</h3> 
+<ul> 
+ <li><a href="#intro">About the Google Sheets integration.</a></li> 
+ <li><a href="#setup">Setting up Google Sheets for the first time.</a></li> 
+ <li><a href="#viewing">Testing Rules and viewing your responses in Google Sheets.</a></li> 
+ <li><a href="#multiple">Connecting multiple Surveys to a single Google Sheet.</a></li> 
+ <li><a href="#edit">Editing Rule settings — (ex. changing questions, responses, and Google Sheets too!)</a></li> 
+ <li><a href="#filter">Filtering Rules and Sheets for team members — by response type (ex. numeric, graphical, text)</a></li> 
+ <li><a href="#delete">Deleting Rules.</a></li> 
+ <li><a href="#faq3">Why is there the 10-minute delay before Sheets updates?</a></li> 
+ <li><a href="#faq4">Why can't I sync data to any spreadsheet in my Google Sheets account?</a></li> 
+</ul> 
+<p> <a href="https://help.delighted.com/article/626-introduction-to-core-certification"></a> </p> 
+<p> Suggested next article: <a href="https://surveys-help.delighted.com/article/741-publishing-and-sending-your-surveys">Publishing and Sending Surveys.</a> </p> 
+<hr> 
+<h2 id="intro">About the Google Sheets integration</h2> 
+<p> Use&nbsp;Google Sheets to track the status of your Delighted Surveys, share feedback, and analyze your data with all the power of a spreadsheet.&nbsp; </p> 
+<dl> 
+ <dd> 
+  <p> <img src="//d33v4339jhl8k0.cloudfront.net/docs/assets/5893d8f5dd8c8e73b3e9452c/images/65bffa347507a5314cbc0ffb/file-IwcaSgyO2y.png"> </p> 
+ </dd> 
+</dl> 
+<p> After the <a href="#setup">initial set-up</a> . . . </p> 
+<table> 
+ <tbody> 
+  <tr> 
+   <td> </td> 
+   <td> The Google Sheets Integration automatically: </td> 
+  </tr> 
+  <tr> 
+   <td> 1 </td> 
+   <td> Creates a new Google spreadsheet with a name you provide (ex. "Museum NPS") </td> 
+  </tr> 
+  <tr> 
+   <td> 2 </td> 
+   <td> Generates a column for each response field </td> 
+  </tr> 
+  <tr> 
+   <td> 3 </td> 
+   <td> Populates each incoming response in a new row </td> 
+  </tr> 
+  <tr> 
+   <td> 4 </td> 
+   <td> <a href="#multiple">Adds a new Tab for any new Survey you add to a single Google Sheets file</a> (ex. "Museum Gift Shop") </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<dl> 
+ <dd> 
+  <p> <img src="//d33v4339jhl8k0.cloudfront.net/docs/assets/5893d8f5dd8c8e73b3e9452c/images/659a164b7273d90e4339aef1/file-KIt9HRVuLb.png"> </p> 
+ </dd>
+ <dd> 
+  <p> After <a href="#setup">completing the setup</a>, Surveys will display the delightfully&nbsp;adorable&nbsp;Google Sheets icon in the corner of the My surveys index card. </p> 
+ </dd>
+ <dd> 
+  <p> <img src="//d33v4339jhl8k0.cloudfront.net/docs/assets/5893d8f5dd8c8e73b3e9452c/images/65c170d9ffa21909875f0866/file-ZdoF9Y2f6i.png" style="width: 339.818px;"> </p> 
+ </dd> 
+</dl> 
+<p> <a href="#top">Back to top</a> </p> 
+<hr> 
+<h2 id="setup">Setting up Google Sheets for the first time</h2> 
+<p> <strong>Part 1 — Connecting to and authenticating with Google Sheets</strong> </p> 
+<dl> 
+ <dt>
+   1 
+ </dt> 
+ <dd>
+  Tap the Integrations tab&nbsp;→ and choose Google Sheets
+ </dd> 
+ <dt>
+   2 
+ </dt> 
+ <dd>
+   Click Connect
+ </dd>
+ <dd>
+  <img src="//d33v4339jhl8k0.cloudfront.net/docs/assets/5893d8f5dd8c8e73b3e9452c/images/65c185028106ae1c4ab6f1e2/file-5fNjQtiPNE.gif"> 
+ </dd> 
+ <dt>
+   3 
+ </dt> 
+ <dd>
+   Follow the onscreen instructions to log into&nbsp;Google Sheets&nbsp;→ and authenticate the Delighted Google Sheets integration by clicking "Continue" and "Allow" as requested through the authentication screens
+ </dd>
+ <dd> 
+  <p> IMPORTANT: If you see this security permission —&nbsp; <strong>“</strong><strong>See, edit, create and delete only the specific Google Drive files you use with this ap</strong>p” —&nbsp;click the box! <em>This</em><em>&nbsp;permission must be selected!</em> </p> 
+ </dd>
+ <dd> 
+  <img src="//d33v4339jhl8k0.cloudfront.net/docs/assets/5893d8f5dd8c8e73b3e9452c/images/65c113180a12eb325db1752f/file-V2nCdJR5BV.gif"> 
+ </dd> 
+</dl> 
+<p> <strong>Part 2 — Publishing your Surveys to Google Sheets</strong> </p> 
+<p> After authenticating and connecting with Google Sheets, you’ll be directed back to Delighted Surveys, where there are two possibilities regarding publishing: </p> 
+<table> 
+ <tbody> 
+  <tr> 
+  </tr> 
+  <tr> 
+   <td> <strong><br> <br> <br> Published Surveys </strong> </td> 
+   <td> <p> If you've already <a href="https://surveys-help.delighted.com/article/741-publishing-and-sending-your-surveys">published</a> one or more surveys, they'll be listed in your Connections section automatically. </p> <p> Notice the green toggle showing that the "Museum NPS" survey is active (aka, Enabled), whereas the Museum Gift Shop survey is connected, but has not been Enabled for Google Sheets. </p> <p> <img src="//d33v4339jhl8k0.cloudfront.net/docs/assets/5893d8f5dd8c8e73b3e9452c/images/65bfffc90b2b8f0dacd7fd9d/file-NnI4z2WlyB.png"> </p> </td> 
+  </tr> 
+  <tr> 
+   <td> <strong><br> <br> Unpublished Surveys </strong> </td> 
+   <td> <p> If you haven't yet <a href="https://surveys-help.delighted.com/article/741-publishing-and-sending-your-surveys">published</a> any surveys, your Connections section will be empty. </p> <p> Click&nbsp;"Create a new survey to get started" and <a href="https://surveys-help.delighted.com/article/741-publishing-and-sending-your-surveys">publish</a> a survey or two. </p> <p> <img src="//d33v4339jhl8k0.cloudfront.net/docs/assets/5893d8f5dd8c8e73b3e9452c/images/65c00026ed989b06acd56a6e/file-7omDKlJw19.png"> </p> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<dl> 
+ <dd> 
+  <section class="callout-yellow dashed">
+   <strong>Can I set up Google Sheets before I begin collecting feedback?</strong> 
+   <p> Yes. It's common practice to prepare your Google Sheets integration before responses start rolling in! </p> 
+   <p> But even you have collected responses, no worries. There's a handy "Send a one-time backfill" option so you and import all of your current responses and continue from there. </p> 
+  </section>
+ </dd> 
+</dl> 
+<p> <strong>Part 3 — Adding rules</strong> </p> 
+<p> To send a survey's feedback to your Google Sheets file: </p> 
+<dl> 
+ <dt>
+   1 
+ </dt> 
+ <dd>
+   Click Edit to the right any 
+  <a href="https://surveys-help.delighted.com/article/741-publishing-and-sending-your-surveys">published</a> Survey → ex. "Museum NPS"
+ </dd>
+ <dd>
+  <img src="//d33v4339jhl8k0.cloudfront.net/docs/assets/5893d8f5dd8c8e73b3e9452c/images/65c1178cfeff244b88aaeb6e/file-6lvQKclY4I.png" style="width: 347.818px;"> 
+ </dd> 
+ <dt>
+   2 
+ </dt> 
+ <dd>
+  Pick Add a rule
+ </dd>
+ <dd>
+  <img src="//d33v4339jhl8k0.cloudfront.net/docs/assets/5893d8f5dd8c8e73b3e9452c/images/65c117ecfeff244b88aaeb70/file-7UfGRor22V.png"> 
+ </dd> 
+ <dt>
+   3 
+ </dt> 
+ <dd>
+  Select your Question and Response settings&nbsp;→ (ex. "Any question" with "Any response" which sends every response to your spreadsheet)
+ </dd> 
+ <dt>
+   4 
+ </dt> 
+ <dd>
+  Name your spreadsheet in the Send responses to box → (ex. use any name, including the Survey's name, such as "Museum NPS") 
+ </dd> 
+ <dt>
+  5
+ </dt> 
+ <dd>
+  Recommended: Check Send a one-time backfill&nbsp;→ to upload existing feedback into your new Sheet
+ </dd>
+ <dd>
+  <img src="//d33v4339jhl8k0.cloudfront.net/docs/assets/5893d8f5dd8c8e73b3e9452c/images/65c118d5ffa21909875f0843/file-rOL0SlM2vg.png" style="width: 384.818px;">
+  <br> 
+ </dd> 
+ <dt>
+  6
+ </dt> 
+ <dd>
+  Click Save rule
+ </dd> 
+</dl> 
+<p> <strong>Part 4 — Enabling</strong> </p> 
+<dl> 
+ <dt>
+  1
+ </dt> 
+ <dd>
+  Click "Disabled" to "Enabled"
+ </dd>
+ <dd>
+  From your Connections page&nbsp;→ click the "Disabled" toggle and switch to the green "Enabled" setting.&nbsp;
+ </dd>
+ <dd>
+  <img src="//d33v4339jhl8k0.cloudfront.net/docs/assets/5893d8f5dd8c8e73b3e9452c/images/65c11a4b0a12eb325db17537/file-5pSW4RAiFS.png">
+ </dd>
+ <dd> 
+  <section class="callout-yellow dashed"> 
+   <p> <strong>About setting up multiple Google Sheets</strong> </p> 
+   <p> Your Delighted Google Sheets integration must create the Google spreadsheet so that Surveys knows where to export the results! <br> <br> And you can create as many Google Sheets as you may need through our integration. We even keep track of them for you, so that if your target spreadsheet has already been created in Google Sheets → you can select it from the drop-down menu.&nbsp; </p> 
+   <p> <img src="//d33v4339jhl8k0.cloudfront.net/docs/assets/5893d8f5dd8c8e73b3e9452c/images/65c1195bfbf3330265919f9c/file-HKvXJRRdbK.png" style="width: 348.818px;"> </p> 
+  </section>
+ </dd> 
+</dl> 
+<p> <a href="#top">Back to top</a> </p> 
+<hr> 
+<h2 id="viewing">Testing Rules and viewing your responses in Google Sheets</h2> 
+<p> Open Google Sheets and locate your target Delighted Surveys integration file. (You may need to refresh&nbsp;your Google Drive&nbsp;or pick Recent from the sidebar.) </p> 
+<dl> 
+ <dd>
+  <img src="//d33v4339jhl8k0.cloudfront.net/docs/assets/5893d8f5dd8c8e73b3e9452c/images/65c3abe4fbf333026591a1f4/file-R5MSpcsKjh.png" style="width: 324px;"> 
+ </dd> 
+</dl> 
+<p> <strong>Send a test message!</strong> </p> 
+<p> To test your Google Sheets integration:&nbsp; </p> 
+<dl> 
+ <dt>
+   1
+ </dt> 
+ <dd>
+  Open your Google Sheets integration&nbsp;
+ </dd> 
+ <dt>
+  2
+ </dt> 
+ <dd>
+  Select Test&nbsp;
+ </dd>
+ <dd>
+  <img src="//d33v4339jhl8k0.cloudfront.net/docs/assets/5893d8f5dd8c8e73b3e9452c/images/65c0174bed989b06acd56a79/file-oFw626Xfho.png">
+ </dd> 
+ <dt>
+  3
+ </dt> 
+ <dd>
+  Pop open Google Sheets and view your test results!&nbsp;
+ </dd> 
+ <dt>
+  4
+ </dt> 
+ <dd>
+  Did it work?&nbsp;(Note: You can Delete this row!)
+  <img src="//d33v4339jhl8k0.cloudfront.net/docs/assets/5893d8f5dd8c8e73b3e9452c/images/65c017850b2b8f0dacd7fda6/file-7XdopXP0Rs.png">
+ </dd> 
+</dl> 
+<dl> 
+</dl> 
+<p> <strong>Viewing responses</strong> </p> 
+<p> The integration will create a column for each field including a combination of native response fields&nbsp;— ex.&nbsp;Response ID, Project ID, Survey ID, Survey Name, Response Created timestamp, and&nbsp;Response Updated timestamp. </p> 
+<p> Most importantly, you'll see the Responses to your questions — both your partial and completed responses. </p> 
+<p> Responses will be updated after a 10 minute delay to allow respondents to complete their questions. </p> 
+<dl> 
+ <dd> 
+  <p> <img src="//d33v4339jhl8k0.cloudfront.net/docs/assets/5893d8f5dd8c8e73b3e9452c/images/659b6bc07273d90e4339af2e/file-7M3wqCViCc.png"> </p> 
+ </dd> 
+</dl> 
+<p> <a href="#top">Back to top</a> </p> 
+<hr> 
+<h2 id="multiple">Connecting multiple Surveys to a single Google Sheet</h2> 
+<p> News flash! You have two options:&nbsp; </p> 
+<ol> 
+ <li>You&nbsp;can connect all of your surveys to separate Google Sheets</li> 
+ <li>Combine multiple surveys into a single&nbsp;Google Sheet — each with a tab of their own!</li> 
+</ol> 
+<dl> 
+ <dd> 
+  <img src="//d33v4339jhl8k0.cloudfront.net/docs/assets/5893d8f5dd8c8e73b3e9452c/images/65c258a4fbf333026591a08b/file-4a8cnN1VNP.png"> 
+ </dd> 
+</dl> 
+<p> 2. To send feedback from a published Survey to an existing Google sheet: </p> 
+<dl> 
+ <dt>
+  1 
+ </dt> 
+ <dd>
+  Click Integrations&nbsp;→ and reopen the Google Sheets integration
+ </dd> 
+ <dt>
+  2 
+ </dt> 
+ <dd>
+   Click Edit → found on your Survey's tile (ex. "Museum Gift Shop")
+ </dd> 
+ <dt>
+  3 
+ </dt> 
+ <dd>
+   Select Add a rule
+ </dd> 
+ <dt>
+  4 
+ </dt> 
+ <dd>
+  We defaulted to "Any question" with "Any response" for the&nbsp;Question and Response settings
+ </dd> 
+ <dt>
+  5 
+ </dt> 
+ <dd>
+  Pick Send responses to → and choose an existing spreadsheet from the list (ex. "Museum NPS")
+ </dd> 
+ <dt>
+  6 
+ </dt> 
+ <dd>
+  Optional: →&nbsp;click Send a one-time backfill
+  <br> 
+ </dd> 
+ <dt>
+  7 
+ </dt> 
+ <dd>
+  Select Save rule
+ </dd>
+ <dd>
+  <img src="//d33v4339jhl8k0.cloudfront.net/docs/assets/5893d8f5dd8c8e73b3e9452c/images/65c154cdfeff244b88aaeb98/file-1X378q0dFG.gif"> 
+ </dd> 
+</dl> 
+<p> <a href="#top">Back to top</a> </p> 
+<hr> 
+<h2 id="edit">Editing Rule settings — (ex. changing questions, responses, and Google Sheets too!)&nbsp;</h2> 
+<dl> 
+ <p> Use the Edit option to alter and refine your Rule selections. In this case, we'll filter the Rule just send responses for Detractors (0-6) from an NPS question to an existing Google Sheets file:&nbsp; </p> 
+ <dt>
+  1 
+ </dt> 
+ <dd>
+  Open your Google Integration
+ </dd> 
+ <dt>
+  2
+ </dt> 
+ <dd>
+   Pick Edit → seen&nbsp;in the corner of your Survey's tile&nbsp;
+ </dd>
+ <dd>
+  <img src="//d33v4339jhl8k0.cloudfront.net/docs/assets/5893d8f5dd8c8e73b3e9452c/images/65c0186f8e1d144482aa0069/file-pDfhfyJVLE.png">
+  <br> 
+ </dd> 
+ <dt>
+  3 
+ </dt> 
+ <dd>
+  Change the "Question" and "With response" settings&nbsp;→ (ex. we picked an NPS question with 0-6, Detractors only, as our "With response" choice)
+ </dd> 
+ <dt>
+  4 
+ </dt> 
+ <dd>
+  Select Send responses to → (ex. we picked "New spreadsheet")
+ </dd> 
+ <dt>
+  5 
+ </dt> 
+ <dd>
+  Name your new spreadsheet&nbsp;→ (ex. Museum detractors)&nbsp;
+ </dd> 
+ <dt>
+  6 
+ </dt> 
+ <dd>
+  Select Save rule
+ </dd>
+ <dd>
+  <img src="//d33v4339jhl8k0.cloudfront.net/docs/assets/5893d8f5dd8c8e73b3e9452c/images/65c25c710a12eb325db1761a/file-96DcgCf7QV.gif">
+ </dd> 
+</dl> 
+<p> <a href="#top">Back to top</a> </p> 
+<hr> 
+<h2 id="filter">Filtering Rules and Sheets for team members — by response type (ex. numeric, graphical, text)</h2> 
+<p> Create as many rules as you need for a single survey. Why you ask? Well here's a potential use case: </p> 
+<ul> 
+ <li>Set up separate Google sheets tied to specific Rules, so team members only see the data that’s relevant to them! (How convenient will that be?)</li> 
+</ul> 
+<p> You can filter by all of your questions — and generate new spreadsheets for team members — based on any type of question in your questionnaire. For example, our A) Museum NPS survey questionnaire has been segmented in the below image by Rules for: </p> 
+<dl> 
+ <dd> 
+  <ul> 
+   <li>B) Text questions</li> 
+   <li>C) Numeric scale-point questions</li> 
+   <li>D) Graphic scale-point question types.</li> 
+  </ul> 
+ </dd> 
+</dl> 
+<dl> 
+ <dd> 
+  <img src="//d33v4339jhl8k0.cloudfront.net/docs/assets/5893d8f5dd8c8e73b3e9452c/images/65c3a580fbf333026591a1e4/file-SNEgnICoX2.png"> 
+ </dd> 
+</dl> 
+<p> In the Rule making process, you can generate — and share — separate Google Sheets emphasizing the specific questions and&nbsp;responses you filter with the Google Sheets integration, all from the same survey.&nbsp;Filter your spreadsheets by any type of question you can possibly create! </p> 
+<dl> 
+ <dd> 
+  <img src="//d33v4339jhl8k0.cloudfront.net/docs/assets/5893d8f5dd8c8e73b3e9452c/images/65c3a5e98106ae1c4ab6f440/file-g5kDzqyKsi.png"> 
+ </dd> 
+</dl> 
+<p> Use your Google Sheets Sharing options to pass these spreadsheets&nbsp;over&nbsp;to the affected team members.&nbsp; </p> 
+<dl> 
+ <dd> 
+  <p> <img src="//d33v4339jhl8k0.cloudfront.net/docs/assets/5893d8f5dd8c8e73b3e9452c/images/65c4006ffeff244b88aaee25/file-5oOgORf8p3.gif"> </p> 
+ </dd> 
+</dl> 
+<p> Let's review our three examples and show you how their unique Sheets are created.&nbsp; </p> 
+<table> 
+ <tbody> 
+  <tr> 
+  </tr> 
+  <tr> 
+   <td> B </td> 
+   <td> <a href="#graphic">Graphic scale Rule</a> </td> 
+   <td> Pick from a range of responses from a graphic survey question (in this case a "Smileys" graphical question) and send it to a new Google Sheet. The sheet will only display responses respondents that answer this graphical (ex. Smileys) Likert scale question. (The full response is included to provide context.) <br> <img src="//d33v4339jhl8k0.cloudfront.net/docs/assets/5893d8f5dd8c8e73b3e9452c/images/65c2ba9dffa21909875f09af/file-CvuFamejeO.png" style="width: 277px;"><img src="//d33v4339jhl8k0.cloudfront.net/docs/assets/5893d8f5dd8c8e73b3e9452c/images/65c3aaec8106ae1c4ab6f445/file-MJKTO3TXO9.png"> </td> 
+  </tr> 
+  <tr> 
+   <td> C </td> 
+   <td> <a href="#numeric">Numeric scale Rule</a> </td> 
+   <td> Pick from a range of responses from a numeric survey question and only send responses to a new Google Sheet for those who have answered that question.&nbsp;(The full response is included for context.) <img src="//d33v4339jhl8k0.cloudfront.net/docs/assets/5893d8f5dd8c8e73b3e9452c/images/65c2ba138106ae1c4ab6f358/file-Y6SWadv5cB.png" style="width: 286px;"> <p> <img src="//d33v4339jhl8k0.cloudfront.net/docs/assets/5893d8f5dd8c8e73b3e9452c/images/65c3b2cfffa21909875f0a7c/file-8fcsG9RSO9.png"> </p> </td> 
+  </tr> 
+  <tr> 
+   <td> D </td> 
+   <td> <a href="#text">Text entry Rule</a> </td> 
+   <td> Display only responses that from those that leave comments to a text question.&nbsp;&nbsp;(The full response is included for context.) <br> <img src="//d33v4339jhl8k0.cloudfront.net/docs/assets/5893d8f5dd8c8e73b3e9452c/images/65c2bb160a12eb325db176b7/file-OYbPrfd9V0.png" style="width: 290px;"><img src="//d33v4339jhl8k0.cloudfront.net/docs/assets/5893d8f5dd8c8e73b3e9452c/images/65c3b382ffa21909875f0a7e/file-QGg5ORuWoJ.png"><br> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<h3 id="graphic">Graphic scale Rule</h3> 
+<dl> 
+ <dt>
+   1 
+ </dt> 
+ <dd>
+   Open your Google Sheets integration&nbsp;→&nbsp;and click Edit in your survey's tile
+ </dd> 
+ <dt>
+   2 
+ </dt> 
+ <dd>
+   Select Add a rule
+ </dd> 
+ <dt>
+   3 
+ </dt> 
+ <dd>
+   In the Add a rule model's settings, make the following selections: 
+ </dd> 
+ <dd> 
+  <table> 
+   <tbody> 
+    <tr> 
+     <td> Setting </td> 
+     <td> Explanation </td> 
+    </tr> 
+    <tr> 
+     <td> <strong>Question</strong> </td> 
+     <td> Pick a graphic question&nbsp;type →&nbsp;(ex. a "Smilies" question with a "5-point scale") </td> 
+    </tr> 
+    <tr> 
+     <td> <strong>With response</strong> </td> 
+     <td> Pick your low scale point and high scale point for the graphic response → (ex. look carefully for the smileys icons in the image below that track the scale points) </td> 
+    </tr> 
+    <tr> 
+     <td> <strong>Send responses to</strong> </td> 
+     <td> Select New spreadsheet&nbsp;→&nbsp;and name your Sheet (ex. "Food choice satisfaction") </td> 
+    </tr> 
+   </tbody> 
+  </table> 
+ </dd> 
+ <dt>
+   4 
+ </dt> 
+ <dd>
+   Recommended: Click Send a one-time backfill
+ </dd> 
+ <dt>
+   5 
+ </dt> 
+ <dd>
+   Save your very cool new Rule&nbsp;
+ </dd>
+ <dd> 
+  <img src="//d33v4339jhl8k0.cloudfront.net/docs/assets/5893d8f5dd8c8e73b3e9452c/images/65c28d06feff244b88aaeca6/file-FV28pYBuZ5.gif"> 
+ </dd> 
+</dl> 
+<h3 id="numeruc">Numeric scale Rule</h3> 
+<dl> 
+ <dt>
+   1 
+ </dt> 
+ <dd>
+   Open your Google Sheets integration&nbsp;→&nbsp;and click Edit in your survey's tile
+ </dd> 
+ <dt>
+   2 
+ </dt> 
+ <dd>
+   Select Add a rule
+ </dd> 
+ <dt>
+   3 
+ </dt> 
+ <dd>
+   In the Add a rule model's options, make the following selections: 
+ </dd> 
+ <dd> 
+  <table> 
+   <tbody> 
+    <tr> 
+     <td> Setting </td> 
+     <td> Explanation </td> 
+    </tr> 
+    <tr> 
+     <td> <strong>Question</strong> </td> 
+     <td> Pick a numeric question type →&nbsp;(ex. an "NPS" question with an "11-point scale") </td> 
+    </tr> 
+    <tr> 
+     <td> <strong>With response</strong> </td> 
+     <td> Pick your low scale point and high scale point for the numeric response → (ex. we picked 9-10, which represent Promoters in NPS research) </td> 
+    </tr> 
+    <tr> 
+     <td> <strong>Send responses to</strong> </td> 
+     <td> Select New spreadsheet&nbsp;→&nbsp;and name your Sheet (ex. "NPS promoters") </td> 
+    </tr> 
+   </tbody> 
+  </table> 
+ </dd> 
+ <dt>
+   4 
+ </dt> 
+ <dd>
+   Recommended: Click Send a one-time backfill
+ </dd> 
+ <dt>
+   5 
+ </dt> 
+ <dd>
+  Save your fabulous new Rule&nbsp;
+ </dd>
+ <dd> 
+  <img src="//d33v4339jhl8k0.cloudfront.net/docs/assets/5893d8f5dd8c8e73b3e9452c/images/65c2ccb58106ae1c4ab6f36b/file-O1gcOeSVup.gif"> 
+ </dd> 
+</dl> 
+<h3 id="text">Text entry Rule</h3> 
+<dl> 
+ <dt>
+   1 
+ </dt> 
+ <dd>
+   Open your Google Sheets integration&nbsp;→&nbsp;and click Edit in your survey's tile
+ </dd> 
+ <dt>
+   2 
+ </dt> 
+ <dd>
+   Select Add a rule
+ </dd> 
+ <dt>
+   3 
+ </dt> 
+ <dd>
+   In the Add a rule model's options, make the following selections: 
+ </dd> 
+ <dd> 
+  <table> 
+   <tbody> 
+    <tr> 
+     <td> Setting </td> 
+     <td> Explanation </td> 
+    </tr> 
+    <tr> 
+     <td> <strong>Question</strong> </td> 
+     <td> Pick a text question type →&nbsp;(ex. "What can we do . . . ) </td> 
+    </tr> 
+    <tr> 
+     <td> <strong>With response</strong> </td> 
+     <td> Choose "Is not empty" </td> 
+    </tr> 
+    <tr> 
+     <td> <strong>Send responses to</strong> </td> 
+     <td> Select New spreadsheet&nbsp;→&nbsp;and name your Sheet (ex. "Text response feedback") </td> 
+    </tr> 
+   </tbody> 
+  </table> 
+ </dd> 
+ <dt>
+   4 
+ </dt> 
+ <dd>
+   Recommended: Click Send a one-time backfill
+ </dd> 
+ <dt>
+   5 
+ </dt> 
+ <dd>
+   Save your amazing new Rule&nbsp;
+ </dd>
+ <dd> 
+  <img src="//d33v4339jhl8k0.cloudfront.net/docs/assets/5893d8f5dd8c8e73b3e9452c/images/65c2cdde0a12eb325db176c8/file-EVVDelSmnP.gif"> 
+ </dd> 
+</dl> 
+<p> <a href="#top">Back to top</a> </p> 
+<hr> 
+<h2 id="delete">Deleting rules</h2> 
+<p> To remove a Rule from your Google Sheets integration: </p> 
+<dl> 
+ <dt>
+  1 
+ </dt> 
+ <dd>
+  Open the Google Integration
+ </dd> 
+ <dt>
+  2 
+ </dt> 
+ <dd>
+  Pick Edit → seen&nbsp;in&nbsp;your Survey's tile in the Connections section
+ </dd> 
+ <dt>
+  3 
+ </dt> 
+ <dd>
+   Select the X&nbsp;→ seen at the far right of the tile
+ </dd> 
+ <dt>
+  4 
+ </dt> 
+ <dd>
+  Click Yes, delete rule&nbsp;→ and poof, the connection is broken. If you need it back again, simply recreate the Rule
+ </dd>
+ <dd>
+  <img src="//d33v4339jhl8k0.cloudfront.net/docs/assets/5893d8f5dd8c8e73b3e9452c/images/65c260010a12eb325db17634/file-ANvE9jde25.gif">
+ </dd> 
+</dl> 
+<p> <a href="#top">Back to top</a> </p> 
+<hr> 
+<h2 id="faq3">Why is there the 10-minute delay before Google Sheets updates?</h2> 
+<p> By default, we include a 10-minute delay between a response being received in Surveys and a new row being created in Google Sheets. This delay ensures that respondents have adequate time to leave comments before syncing begins. </p> 
+<p> After 10 minutes have expired, any completed (or partially completed) response will be forward from Surveys to your Google Sheet — and a new row will be added to the connected spreadsheet(s). </p> 
+<p> <a href="#top">Back to top</a> </p> 
+<hr> 
+<h2 id="faq4">Why can't I sync data to any spreadsheet in my Google Sheets Account?</h2> 
+<p> For security reasons, our integration cannot view spreadsheets in your Google Sheets account that it did not create.&nbsp; </p> 
+<p> As a result, you cannot sync data to pre-existing spreadsheets created outside of the Delighted Google integration. </p> 
+<p> <a href="#top">Back to top</a> </p> 
+<hr> 
+<script src="https://cdn.weglot.com/weglot.min.js" type="text/javascript"></script> 
+<script type="text/javascript">
+
+&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;    Weglot.initialize({
+        api_key: 'wg_7050858d869bbb003c30898bdab522356'
+    });
+</script>
+    </article>
+    
+
+    <section class="articleFoot">
+    
+        <i class="icon-contact"></i>
+        <p class="help">Still need help?
+            <a id="sbContact" href="#" class="contactUs" onclick="window.Beacon('open')">Contact Us</a>
+            <a id="sbContactMobile" href="#" class="contactUs" onclick="window.Beacon('open')">Contact Us</a>
+        </p>
+    
+
+    <time class="lu" datetime=2024-02-08 >Last updated on February 8, 2024</time>
+    </section>
+
+                    </div><!--/contentWrapper-->
+                    
+                </section><!--/content-->
+                <aside id="sidebar" class="span3">
+                 
+
+<form action="/search" method="GET" id="searchBar" class="sm" autocomplete="off">
+    
+                    <input type="hidden" name="collectionId" value="64b81c6b49f0be65d185e461"/>
+                    <input type="text" name="query" title="search-query" class="search-query" placeholder="Search" value="" aria-label="Search" />
+                    <button type="submit">
+                        <span class="sr-only">Toggle Search</span>
+                        <i class="icon-search"></i>
+                    </button>
+                    <div id="serp-dd" style="display: none;" class="sb">
+                        <ul class="result">
+                        </ul>
+                    </div>
+                
+</form>
+
+                
+                    <h3>Categories</h3>
+                    <ul class="nav nav-list">
+                    
+                        
+                            <li ><a href="/category/728-0-getting-started-with-delighted-surveys">0. Getting Started  <i class="icon-arrow"></i></a></li>
+                        
+                    
+                        
+                            <li ><a href="/category/729-1-creating-editing-surveys">1. Creating &amp; Editing Surveys  <i class="icon-arrow"></i></a></li>
+                        
+                    
+                        
+                            <li ><a href="/category/730-2-collaborating-previewing-distributing-surveys">2. Publishing &amp; Sending Surveys  <i class="icon-arrow"></i></a></li>
+                        
+                    
+                        
+                            <li ><a href="/category/731-3-reporting-analytics">3. Reporting &amp; Analytics  <i class="icon-arrow"></i></a></li>
+                        
+                    
+                        
+                            <li  class="active" ><a href="/category/732-4-integrating-connecting-surveys">4. Integrating &amp; Connecting Surveys  <i class="icon-arrow"></i></a></li>
+                        
+                    
+                        
+                            <li ><a href="/category/733-5-managing-your-surveys-account">5. Managing your Account  <i class="icon-arrow"></i></a></li>
+                        
+                    
+                    </ul>
+                
+                </aside><!--/span-->
+            </div><!--/row-->
+            <div id="noResults" style="display:none;">No results found</div>
+            <footer>
+                
+
+<p>&copy;
+    
+        <a href="https://surveys-app.delighted.com">Delighted, LLC</a>
+    
+    2024. <span>Powered by <a rel="nofollow noopener noreferrer" href="https://www.helpscout.com/knowledge-base/?co=Delighted%2C+LLC&utm_source=docs&utm_medium=footerlink&utm_campaign=Docs+Branding" target="_blank">Help Scout</a></span>
+    
+        
+    
+</p>
+
+            </footer>
+        </section><!--/.fluid-container-->
+        
+            
+
+<script id="beaconLoader" type="text/javascript">!function(e,t,n){function a(){var e=t.getElementsByTagName("script")[0],n=t.createElement("script");n.type="text/javascript",n.async=!0,n.src="https://beacon-v2.helpscout.net",e.parentNode.insertBefore(n,e)}if(e.Beacon=n=function(t,n,a){e.Beacon.readyQueue.push({method:t,options:n,data:a})},n.readyQueue=[],"complete"===t.readyState)return a();e.attachEvent?e.attachEvent("onload",a):e.addEventListener("load",a,!1)}(window,document,window.Beacon||function(){});</script>
+<script type="text/javascript">window.Beacon('init', '2ba5ac34-f7bf-41fe-b9a0-ea092861b0cf')</script>
+
+<script type="text/javascript">
+    function hashChanged() {
+        var hash = window.location.hash.substring(1); 
+        if (hash === 'contact') {
+            window.Beacon('open')
+        }
+    }
+
+    if (window.location.hash) {
+        hashChanged()
+    }
+
+    window.onhashchange = function () {
+        hashChanged()
+    }
+
+    window.addEventListener('hashchange', hashChanged, false);
+
+</script>
+
+        
+        
+    <script src="//d3eto7onm69fcz.cloudfront.net/assets/javascripts/app3.min.js"></script>
+
+<script>
+// keep iOS links from opening safari
+if(("standalone" in window.navigator) && window.navigator.standalone){
+// If you want to prevent remote links in standalone web apps opening Mobile Safari, change 'remotes' to true
+var noddy, remotes = false;
+document.addEventListener('click', function(event) {
+noddy = event.target;
+while(noddy.nodeName !== "A" && noddy.nodeName !== "HTML") {
+noddy = noddy.parentNode;
+}
+
+if('href' in noddy && noddy.href.indexOf('http') !== -1 && (noddy.href.indexOf(document.location.host) !== -1 || remotes)){
+event.preventDefault();
+document.location.href = noddy.href;
+}
+
+},false);
+}
+</script>
+        
+    </body>
+</html>
+
+

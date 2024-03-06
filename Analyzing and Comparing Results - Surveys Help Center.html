@@ -1,0 +1,876 @@
+
+
+<!DOCTYPE html>
+<html>
+    
+<head>
+    <meta charset="utf-8"/>
+    <title>Analyzing and Comparing Results - Surveys Help Center</title>
+    <meta name="viewport" content="width=device-width, maximum-scale=1"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="format-detection" content="telephone=no">
+    <meta name="description" content="In this article All about the Results page. Interpreting Metrics. Filtering, editing, and comparing visualizations. Analyzing and deleting individual responses."/>
+    <meta name="author" content="Delighted, LLC"/>
+    <link rel="canonical" href="https://surveys-help.helpscoutdocs.com/article/742-analyzing-and-comparing-results"/>
+    
+        
+   
+            <meta name="twitter:card" content="summary"/>
+            <meta name="twitter:title" content="Analyzing and Comparing Results" />
+            <meta name="twitter:description" content="In this article All about the Results page. Interpreting Metrics. Filtering, editing, and comparing visualizations. Analyzing and deleting individual responses."/>
+
+
+    
+
+    
+        <link rel="stylesheet" href="//d3eto7onm69fcz.cloudfront.net/assets/stylesheets/launch-1709575435574.css">
+    
+    <style>
+        body { background: #f7f7f6; }
+        .navbar .navbar-inner { background: #f7f7f6; }
+        .navbar .nav li a, 
+        .navbar .icon-private-w  { color: #0f181e; }
+        .navbar .brand, 
+        .navbar .nav li a:hover, 
+        .navbar .nav li a:focus, 
+        .navbar .nav .active a, 
+        .navbar .nav .active a:hover, 
+        .navbar .nav .active a:focus  { color: #4e73fa; }
+        .navbar a:hover .icon-private-w, 
+        .navbar a:focus .icon-private-w, 
+        .navbar .active a .icon-private-w, 
+        .navbar .active a:hover .icon-private-w, 
+        .navbar .active a:focus .icon-private-w { color: #4e73fa; }
+        #serp-dd .result a:hover,
+        #serp-dd .result > li.active,
+        #fullArticle strong a,
+        #fullArticle a strong,
+        .collection a,
+        .contentWrapper a,
+        .most-pop-articles .popArticles a,
+        .most-pop-articles .popArticles a:hover span,
+        .category-list .category .article-count,
+        .category-list .category:hover .article-count { color: #4e73fa; }
+        #fullArticle, 
+        #fullArticle p, 
+        #fullArticle ul, 
+        #fullArticle ol, 
+        #fullArticle li, 
+        #fullArticle div, 
+        #fullArticle blockquote, 
+        #fullArticle dd, 
+        #fullArticle table { color:#0f181e; }
+    </style>
+    
+        <link rel="stylesheet" href="//delighted-static.s3.amazonaws.com/help-scout-docs/index-331378470b1f58d98f2b8ac49dd01f6c.css">
+    
+    <link rel="apple-touch-icon-precomposed" href="//d33v4339jhl8k0.cloudfront.net/docs/assets/5893d8f5dd8c8e73b3e9452c/images/64b8200957a4e8315e721805/apple-touch-icon-152-precomposed.png">
+    <link rel="shortcut icon" type="image/png" href="//d33v4339jhl8k0.cloudfront.net/docs/assets/5893d8f5dd8c8e73b3e9452c/images/64b82009d48f7f58ce212c04/favicon.ico">
+    <!--[if lt IE 9]>
+    
+        <script src="//d3eto7onm69fcz.cloudfront.net/assets/javascripts/html5shiv.min.js"></script>
+    
+    <![endif]-->
+    
+        <script type="application/ld+json">
+        {"@context":"https://schema.org","@type":"WebSite","url":"https://surveys-help.helpscoutdocs.com","potentialAction":{"@type":"SearchAction","target":"https://surveys-help.helpscoutdocs.com/search?query={query}","query-input":"required name=query"}}
+        </script>
+    
+        <script type="application/ld+json">
+        {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Surveys Help Center","item":"https://surveys-help.helpscoutdocs.com"},{"@type":"ListItem","position":2,"name":"Delighted Surveys","item":"https://surveys-help.helpscoutdocs.com/collection/725-delighted-surveys"},{"@type":"ListItem","position":3,"name":"Analyzing and Comparing Results","item":"https://surveys-help.helpscoutdocs.com/article/742-analyzing-and-comparing-results"}]}
+        </script>
+    
+    
+        <style>
+  #consent_blackbar {
+    position: fixed !important;
+    bottom: 0;
+    border-top: 1px solid #dddddd !important;
+    background-color: #ffffff !important;
+    z-index: 9999;
+  }
+  body>:not(#beacon-container) button.truste-button1, body>:not(#beacon-container) button.truste-button2 {
+    background: none !important;
+    border: 1px solid #e0e0d9 !important;
+    border-radius: 6px !important;
+    font-size: 14px !important;
+    padding: 5px !important;
+    background-color: white !important;
+    margin: 10px 0 !important;
+  }
+  body>:not(#beacon-container) .truste-left img{
+    margin-bottom: -5px !important;
+  }
+  .text-content {
+    padding-bottom: 10px !important;
+  }
+  #truste-consent-text {
+    font-size: 14px !important;
+    line-height: 20px !important;
+  }
+  #truste-consent-buttons button,
+  #truste-show-consent {
+    background: #1E94E8 !important;
+    color: #ffffff !important;
+    font-family: "Lausanne", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+  }
+</style>
+<script type="text/javascript">
+  (function() {
+    function customNavigationScript() {
+      let homeLink = document.getElementsByClassName("brand");
+      while (homeLink[0].firstChild) {
+        homeLink[0].removeChild(homeLink[0].firstChild);
+      }
+      let sp2 = document.getElementById("home");
+      sp2.innerHTML = '<a class="current surveys" href="https://surveys-help.delighted.com/">Surveys</a>';
+      let sp3 = document.getElementById("contact");
+      $(".search-query").attr("placeholder", "Search Surveys");
+      let parentDiv = document.getElementById("home").parentNode;
+      let gpDiv = parentDiv.parentNode;
+      let liTemplates = document.createElement('li');
+      liTemplates.id = 'templates';
+      liTemplates.innerHTML = '<a class="templates" href="https://help.delighted.com">Templates</a>';
+      let liPricing = document.createElement('li');
+      liPricing.id = 'pricing';
+      liPricing.innerHTML = '<a href="https://delighted.com/pricing">Pricing</a>';
+      let liSignin = document.createElement('li');
+      liSignin.id = 'signin';
+      liSignin.innerHTML = '<a href="https://app.delighted.com/signin" target="_blank" rel="noreferrer">Sign in</a>';
+      parentDiv.insertBefore(liTemplates, sp3);
+      parentDiv.insertBefore(liPricing, sp3);
+      parentDiv.appendChild(liSignin, sp3);
+      gpDiv.classList.add("show");
+    }
+    if (window.addEventListener) {
+      window.addEventListener("load", customNavigationScript, false);
+    } else if (window.attachEvent) {
+      window.attachEvent("onload", customNavigationScript);
+    }
+  })();
+</script>
+<script>
+  window.heap=window.heap||[],heap.load=function(e,t){window.heap.appid=e,window.heap.config=t=t||{};var r=t.forceSSL||"https:"===document.location.protocol,a=document.createElement("script");a.type="text/javascript",a.async=!0,a.src=(r?"https:":"http:")+"//cdn.heapanalytics.com/js/heap-"+e+".js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(a,n);for(var o=function(e){return function(){heap.push([e].concat(Array.prototype.slice.call(arguments,0)))}},p=["addEventProperties","addUserProperties","clearEventProperties","identify","removeEventProperty","setEventProperties","track","unsetEventProperty"],c=0;c<p.length;c++)heap[p[c]]=o(p[c])};
+  heap.load("1728408355");
+  heap.addEventProperties({
+    "Screen Dimensions": window.screen.width + " x " + window.screen.height,
+    "Screen Pixel Ratio": window.devicePixelRatio,
+    "Window Width": window.innerWidth,
+    "Window Height": window.innerHeight
+  });
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5HVL0RGW2V"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-5HVL0RGW2V');
+</script>
+<script>
+  var initHighlighting = function() {
+    if (initHighlighting.called) return;
+    initHighlighting.called = true;
+    var blocks = document.querySelectorAll("pre.code");
+    for (var i = 0; i < blocks.length; i++) hljs.highlightBlock(blocks[i]);
+  };
+  addEventListener("DOMContentLoaded", initHighlighting, false);
+  addEventListener("load", initHighlighting, false);
+</script>
+<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+<script type="text/javascript" src="https://cdn.weglot.com/weglot.min.js"></script>
+<script>
+  Weglot.initialize({
+    api_key: 'wg_7050858d869bbb003c30898bdab522356',
+    switchers: [
+    {
+    button_style: {
+        full_name: true,
+        with_name: true,
+        is_dropdown: true,
+        with_flags: true,
+        flag_type: "circle"
+    },
+    location: {
+        target: "footer",
+        sibling: null
+        }
+    }
+  ]
+  });
+</script>
+<script>
+setTimeout(function() {
+  var trustarcDiv = document.createElement("div");
+  trustarcDiv.id = 'consent_blackbar';
+  document.body.appendChild(trustarcDiv);
+  }, 4000);
+</script>
+<script>
+  setTimeout(function() {
+    var headID = document.getElementsByTagName("head")[0];
+    var newScript = document.createElement('script');
+    newScript.src = 'https://consent.trustarc.com/notice?noticeType=bb&domain=sap-delighted.com&c=teconsent&js=nj&text=true&privacypolicylink=https$3A$2F$2Fapp.delighted.com$2Fprivacy';
+    headID.appendChild(newScript);
+  }, 5000);
+</script>
+<script type="text/javascript">
+  !function(e,t,r,n){if(!e[n]){for(var a=e[n]=[],i=["survey","reset","config","init","set","get","event","identify","track","page","screen","group","alias"],s=0;s<i.length;s++){var c=i[s];a[c]=a[c]||function(e){return function(){var t=Array.prototype.slice.call(arguments);a.push([e,t])}}(c)}a.SNIPPET_VERSION="1.0.1";var o=t.createElement("script");o.type="text/javascript",o.async=!0,o.src="https://d2yyd1h5u9mauk.cloudfront.net/integrations/web/v1/library/"+r+"/"+n+".js";var p=t.getElementsByTagName("script")[0];p.parentNode.insertBefore(o,p)}}(window,document,"s6pAwY06zTnyJR2t","delightedCes");
+  delightedCes.survey({properties:{site:"Surveys"}
+  });
+</script>
+
+    
+</head>
+    
+    <body>
+        
+<header id="mainNav" class="navbar">
+    <div class="navbar-inner">
+        <div class="container-fluid">
+            <a class="brand" href="https://surveys-app.delighted.com">
+            
+                <span>Surveys Help Center</span>
+            
+            </a>
+            
+                <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                    <span class="sr-only">Toggle Navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            
+            <div class="nav-collapse collapse">
+                <nav role="navigation"><!-- added for accessibility -->
+                <ul class="nav">
+                    
+                        <li id="home"><a href="/">Help Center <b class="caret"></b></a></li>
+                    
+                    
+                    
+                        <li id="contact"><a href="#" class="contactUs" onclick="window.Beacon('open')">Contact</a></li>
+                        <li id="contactMobile"><a href="#" class="contactUs" onclick="window.Beacon('open')">Contact</a></li>
+                    
+                </ul>
+                </nav>
+            </div><!--/.nav-collapse -->
+        </div><!--/container-->
+    </div><!--/navbar-inner-->
+</header>
+        <section id="contentArea" class="container-fluid">
+            <div class="row-fluid">
+                <section id="main-content" class="span9">
+                    <div class="contentWrapper">
+                        
+    
+    <article id="fullArticle">
+        <h1 class="title">Analyzing and Comparing Results</h1>
+    
+        <a href="javascript:window.print()" class="printArticle" title="Print this article" aria-label="Print this Article"><i class="icon-print"></i></a>
+        <h3>In this article</h3>
+<ul> 
+ <li><a href="#intro">All about the Results page.</a></li> 
+ <li><a href="#metrics">Interpreting Metrics.</a></li> 
+ <li><a href="#modifying">Filtering, editing, and comparing visualizations.</a></li> 
+ <li><a href="#individual">Analyzing and deleting individual responses.</a></li> 
+ <li><a href="#export">Exporting Results.</a></li> 
+ <li><a href="#share">Sharing Results.</a></li> 
+ <li><a href="#create-report">Creating Reports from your Results pages.</a></li>
+</ul>
+<p> Suggested next article: <a href="//surveys-help.helpscoutdocs.com/article/760-text-analysis">Analyzing and Tagging Text Responses.</a><a href="https://surveys-help.delighted.com/article/743-creating-and-sharing-reports"></a></p>
+<hr role="separator">
+<h2 id="intro">All about the Results page</h2>
+<p> The Results page presents an aggregate summary of every response for each <a href="https://surveys-help.delighted.com/article/741-publishing-and-sending-your-surveys">published</a> survey in your account.&nbsp;</p>
+<p> The key elements of the Results page are:</p> 
+<table> 
+ <tbody> 
+  <tr> 
+  </tr> 
+  <tr> 
+   <td> 1 </td> 
+   <td> <strong>Results</strong> </td> 
+   <td> (No surprise here!) The Results page will populate your survey’s metrics and update the aggregate visualizations for each question&nbsp; </td> 
+  </tr> 
+  <tr> 
+   <td> 2 </td> 
+   <td> <strong>Metrics</strong> </td> 
+   <td> Your survey’s performance metrics are compiled at the top of the Results page (See <a href="#metrics">Interpreting metrics</a> below) </td> 
+  </tr> 
+  <tr> 
+   <td> 3 </td> 
+   <td> <strong>Visualizations</strong> </td> 
+   <td> Scroll down&nbsp;→ and&nbsp;view all of your visualizations! </td> 
+  </tr> 
+ </tbody> 
+</table>
+<dd> 
+ <img src="//d33v4339jhl8k0.cloudfront.net/docs/assets/5893d8f5dd8c8e73b3e9452c/images/65bc165ea7493b27a932f9c3/file-ckJn7OutCW.png"> 
+</dd> 
+<table> 
+ <tbody> 
+  <tr> 
+  </tr> 
+  <tr> 
+   <td> 4 </td> 
+   <td> <strong>Responses</strong> </td> 
+   <td> Click Responses to view (wait for it)&nbsp;→&nbsp;individual response cards that contain all of details about an individual response. There are also Export, Sharing, and Report building options on each card </td> 
+  </tr> 
+ </tbody> 
+</table>
+<dd> 
+ <img src="//d33v4339jhl8k0.cloudfront.net/docs/assets/5893d8f5dd8c8e73b3e9452c/images/65bc170a8e1d144482a9fe59/file-Ivj4gAA54k.png"> 
+</dd>
+<h3><strong>Opening your Results</strong></h3>
+<p> To view the Results page for a published survey:</p>
+<dl> 
+ <dt>
+   1 
+ </dt> 
+ <dd>
+  Click the My surveys button (or Delighted Surveys) → to open the Surveys index
+ </dd> 
+ <dt>
+   2 
+ </dt> 
+ <dd>
+   Select any published survey's index card → and open the live Results page
+ </dd> 
+ <dd>
+  <img src="//d33v4339jhl8k0.cloudfront.net/docs/assets/5893d8f5dd8c8e73b3e9452c/images/65bc3d60ed989b06acd56885/file-JMLurdf5u4.png">
+ </dd> 
+ <dd> 
+  <section class="callout-yellow dashed">
+   Published surveys have a Copy survey link button at the bottom of their index cards!
+  </section>
+ </dd>
+</dl>
+<p> <strong>About predictive visualizations</strong></p>
+<p> The Results page will predict which representation best fits a question’s format. For example, a numeric 11-point scale question conjures this informative chart highlighting NPS Detractors, Passives, and Promoters. (It's a seriously informative NPS visualization.)</p>
+<dl> 
+ <dd> 
+  <img src="//d33v4339jhl8k0.cloudfront.net/docs/assets/5893d8f5dd8c8e73b3e9452c/images/64d264b72f9efa0a1b131e15/file-Bj28iJtaoc.png" style="width: 100%; max-width: 100%; "> 
+ </dd> 
+ <dl> 
+  <p> Other visualizations, like those for demographic questions, are a slam dunk for Delighted Surveys — which excels in delivering eye-catching, informative charts and graphs. </p>
+  <dl> 
+   <dd> 
+    <img src="//d33v4339jhl8k0.cloudfront.net/docs/assets/5893d8f5dd8c8e73b3e9452c/images/64d265230b304e49374a6acc/file-l3rx0JUpx4.png" style="width: 100%; max-width: 100%; "> 
+   </dd> 
+  </dl>
+  <p> To expand and flip through your charts and tables one at a time: </p>
+  <dl> 
+   <dt>
+     1 
+   </dt> 
+   <dd>
+     Expand a chart by hovering until the expand arrows appear&nbsp;→&nbsp;then click the card
+   </dd> 
+   <dt>
+     2 
+   </dt> 
+   <dd>
+     Flip forward to the next visualization →&nbsp;by clicking Next result
+   </dd> 
+   <dt>
+     3 
+   </dt> 
+   <dd>
+     Flip back through the visualizations →&nbsp;by clicking Previous result
+   </dd> 
+  </dl>
+  <dl> 
+   <dd>
+    <img src="//d33v4339jhl8k0.cloudfront.net/docs/assets/5893d8f5dd8c8e73b3e9452c/images/65bc3eeda7493b27a932f9eb/file-Fc9XRhsul8.gif"> 
+   </dd> 
+  </dl>
+  <p> <a href="#top">Back to top</a> </p>
+  <hr role="separator"> 
+  <h2 id="metrics">Interpreting Metrics</h2>
+  <p> Engagement metrics are calculated automatically and are displayed at the top of each Results page. </p>
+  <p> To view a survey’s engagement metrics: </p>
+  <dl> 
+   <dt>
+     1 
+   </dt> 
+   <dd>
+    Open your survey’s Results page
+   </dd> 
+   <dt>
+     2 
+   </dt> 
+   <dd>
+     Evaluate the metrics displayed near the top of the page&nbsp;→&nbsp;as explained below
+   </dd> 
+  </dl> 
+  <table> 
+   <tbody> 
+    <tr> 
+    </tr> 
+    <tr> 
+     <td> 1 </td> 
+     <td> <strong>Shown</strong> </td> 
+     <td> How many times the survey has been shown to prospective respondents </td> 
+    </tr> 
+    <tr> 
+     <td> 2 </td> 
+     <td> <strong>Responses</strong> </td> 
+     <td> How many respondents started the survey by answering at least one question </td> 
+    </tr> 
+    <tr> 
+     <td> 3 </td> 
+     <td> <strong>Start rate</strong> </td> 
+     <td> The percentage of respondents that started the survey by answering at least one question </td> 
+    </tr> 
+    <tr> 
+     <td> 4 </td> 
+     <td> <strong>Completion rate</strong> </td> 
+     <td> The percentage of respondents that have completed the entire survey by answering every single question </td> 
+    </tr> 
+    <tr> 
+     <td> 5 </td> 
+     <td> <strong>Latest response</strong> </td> 
+     <td> When was the last response submitted; as posted in hours and minutes </td> 
+    </tr> 
+    <tr> 
+     <td> 6 </td> 
+     <td> <strong>Question metric</strong> </td> 
+     <td> How many respondents answered each individual question </td> 
+    </tr> 
+   </tbody> 
+  </table>
+  <dd> 
+   <img src="//d33v4339jhl8k0.cloudfront.net/docs/assets/5893d8f5dd8c8e73b3e9452c/images/65bc4019ed989b06acd56886/file-esqWzr99Rw.png"> 
+  </dd> 
+  <p> <a href="#top">Back to top</a> </p>
+  <hr> 
+  <h2 id="modifying">Filtering, editing, and comparing visualizations</h2>
+  <p> Expanding a visualization will open up a range of reporting options. Expand any visualization on your Results page by simply clicking on it!&nbsp; </p>
+  <p> From the expanded view you can: </p> 
+  <table> 
+   <tbody> 
+    <tr> 
+    </tr> 
+    <tr> 
+     <td> 1 </td> 
+     <td> <a href="#filter">Filter responses to a question</a> </td> 
+    </tr> 
+    <tr> 
+     <td> 2 </td> 
+     <td> <a href="#chart">Switch to alternate charts</a> </td> 
+    </tr> 
+    <tr> 
+     <td> 3 </td> 
+     <td> <a href="#compare">Compare two questions</a> </td> 
+    </tr> 
+   </tbody> 
+  </table>
+  <dd> 
+   <img src="//d33v4339jhl8k0.cloudfront.net/docs/assets/5893d8f5dd8c8e73b3e9452c/images/64ff2cf726847651a7f549b2/file-hqpHGViJxI.png" style="width: 100%; max-width: 100%; "> 
+  </dd> 
+  <h3 id="filter">1. Filtering responses to a question </h3>
+  <p> Click on a specific answer choice, either in the chart or in the legend, to filter the visualization. The response count will update to reflect the number of respondents who chose that particular answer choice. Click again to remove the filter! </p>
+  <dd>
+   <img src="//d33v4339jhl8k0.cloudfront.net/docs/assets/5893d8f5dd8c8e73b3e9452c/images/65bc56127507a5314cbc0e6c/file-vu7SZkqdI3.gif"> 
+  </dd> 
+  <h3 id="chart">2. Switching to alternate charts</h3>
+  <p> Many charts offer alternate visualization types.&nbsp;This can be helpful if&nbsp;the predictive visualization is not right for your question; for example, if your 11-point scale question is asking something other than an NPS "likely to recommend" question.&nbsp; </p>
+  <p> Click on the visualization and change the chart type with the drop-down menu in the top left corner to make a switch, as shown here for the NPS options. </p>
+  <dd> 
+   <img src="//d33v4339jhl8k0.cloudfront.net/docs/assets/5893d8f5dd8c8e73b3e9452c/images/64d97b8f23f94575804bbad9/file-6Iagk8wOYg.png" style="width: 197.818px;" https:=" " s3.amazonaws.com="" helpscout.net="" docs="" assets="" 5893d8f5dd8c8e73b3e9452c="" images="" 64d97a9ee3ee466b38a4d525="" file-hnvpajhrrh.gif"=""> 
+  </dd> 
+  <dl> 
+   <dd> 
+    <section class="callout-yellow dashed"> 
+     <strong>Alternate formats&nbsp;revert back to the default —&nbsp;unless added to a report</strong> 
+     <p> An alternative chart reverts to its original when you return to the Results page.&nbsp;To permanently capture an alternative chart, add it to a report as detailed in <a href="https://surveys-help.delighted.com/article/743-creating-and-sharing-reports">Creating and Sharing Reports</a>. </p>
+    </section>
+   </dd> 
+  </dl>
+  <h3 id="compare">3. Comparing questions</h3>
+  <p> Juxtapose one set of results with another to highlight important insights and correlations. For example, see the average satisfaction rating for customers who shopped in a store versus those who shopped online. </p>
+  <p> To compare the results from two questions: </p>
+  <dl> 
+   <dt>
+     1 
+   </dt> 
+   <dd>
+     Click on any visualization → from the Results page
+   </dd> 
+   <dt>
+     2 
+   </dt> 
+   <dd>
+     Choose Compare answers to another question
+   </dd> 
+   <dt>
+     3 
+   </dt> 
+   <dd>
+     Pick your comparable question from the list
+   </dd> 
+  </dl>
+  <dl> 
+   <dd>
+    <img src="//d33v4339jhl8k0.cloudfront.net/docs/assets/5893d8f5dd8c8e73b3e9452c/images/65bc42517507a5314cbc0e65/file-dOM5IuPeWv.gif"> 
+   </dd> 
+  </dl>
+  <dl> 
+   <dd> 
+    <section class="callout-yellow dashed"> 
+     <strong>More about comparative visualizations </strong> 
+     <p> Comparative visualizations: </p>
+     <ul> 
+      <li>Are available for all question types except open text</li> 
+      <li>Will revert back to their original forms as you return to the Results page</li> 
+      <li>Can only be captured permanently if you add them to a report&nbsp;→&nbsp;as detailed in <a href="https://surveys-help.delighted.com/article/743-creating-and-sharing-reports">Creating and Sharing Reports</a></li> 
+     </ul>
+    </section>
+   </dd> 
+  </dl>
+  <p> <a href="#top">Back to top</a> </p>
+  <hr role="separator"> 
+  <h2 id="individual">Analyzing and deleting individual responses</h2>
+  <p> A Response card is generated for every response to your survey. Each individual response is accessible under the Responses tab where you can view, share, and delete the data.&nbsp; </p>
+  <p> Separate cards are created regardless of how complete, or incomplete, respondent answers may be — as seen in these two examples. </p>
+  <dd> 
+   <img src="//d33v4339jhl8k0.cloudfront.net/docs/assets/5893d8f5dd8c8e73b3e9452c/images/64d427dd9d8cf153a015dcee/file-CkP0ABwMwa.png" style="width: 100%; max-width: 100%; "> 
+  </dd> 
+  <dl> 
+   <dd> 
+    <section class="callout-yellow dashed"> 
+     <p> <strong>About anonymous surveys and links</strong> </p>
+     <p> Delighted Surveys are distributed via "anonymous" links or URLs, so response cards list them as such. </p>
+     <p> To collect names, email addresses, phone numbers, or other personal information, ask a Recommended Demographic question, which allow participants to enter their personal information voluntarily. (See <a href="https://surveys-help.delighted.com/article/736-creating-surveys#recommended">2. Selecting from the Recommended questions library</a>) </p>
+     <p> You can also pass the respondent's email address through the survey URL as explained in <a href="https://surveys-help.delighted.com/article/741-publishing-and-sending-your-surveys#pass-email">Capturing respondent email addresses</a> in the&nbsp;Publishing and Sending Surveys section. </p>
+    </section>
+   </dd> 
+  </dl>
+  <p> <strong>Understanding individual responses</strong> </p>
+  <p> From your response cards you can: </p>
+  <dl> 
+   <dt>
+     1 
+   </dt> 
+   <dd>
+     Identify the source of the response
+   </dd> 
+   <dt>
+     2 
+   </dt> 
+   <dd>
+     View the date the response was submitted
+   </dd> 
+   <dt>
+     3 
+   </dt> 
+   <dd>
+     Scroll over the icons to see which format was used for each question&nbsp;→&nbsp;ex. a Multiple choice list of options
+    <br> 
+   </dd> 
+   <dt>
+     4 
+   </dt> 
+   <dd>
+     Click Add to a report&nbsp;→&nbsp;which appends the selected response 
+    <a href="https://surveys-help.delighted.com/article/743-creating-and-sharing-reports">to a report</a> 
+   </dd> 
+   <dt>
+     5 
+   </dt> 
+   <dd> 
+    <a href="#share">Share an individual response card</a> with others
+   </dd> 
+  </dl>
+  <dl> 
+   <dd> 
+    <img src="//d33v4339jhl8k0.cloudfront.net/docs/assets/5893d8f5dd8c8e73b3e9452c/images/65bc1e7ba7493b27a932f9d3/file-KGhsQQA5FP.png"> 
+   </dd> 
+   <dl> 
+    <p> <strong>Deleting responses</strong> </p>
+    <p> To delete a response: </p>
+    <dl> 
+     <dt>
+       1 
+     </dt> 
+     <dd>
+      Click Responses&nbsp;→ and scroll down to your target response&nbsp;card
+     </dd> 
+     <dt>
+       2 
+     </dt> 
+     <dd>
+       Click the ellipsis in the corner of the response card&nbsp;→ and pick Delete response
+     </dd> 
+     <dt>
+       3 
+     </dt> 
+     <dd>
+      Click Yes, delete response&nbsp;→&nbsp;thereby removing it from a survey’s dataset, an action that cannot be undone (Click the x to cancel this action)
+     </dd> 
+    </dl>
+    <dl> 
+     <dl> 
+      <dd>
+       <img src="//d33v4339jhl8k0.cloudfront.net/docs/assets/5893d8f5dd8c8e73b3e9452c/images/65bc1a55ed989b06acd56867/file-MHd7xhfwFV.gif">
+      </dd> 
+     </dl>
+     <p> <a href="#top">Back to top</a> </p>
+     <hr role="separator"> 
+     <h2 id="export">Exporting Results</h2>
+     <p> Exporting will send a complete copy of your results to the email address associated with your account in a CSV file. CSV is shorthand for comma-separated values — a very common spreadsheet format, compatible with every major spreadsheet app (ex. Excel, Sheets, Numbers, and more). </p>
+     <p> There are two&nbsp;available&nbsp;export types: </p> 
+     <table> 
+      <tbody> 
+       <tr> 
+       </tr> 
+       <tr> 
+        <td> 1 </td> 
+        <td> <strong>Results tab</strong> </td> 
+        <td> Export a summarized version of your data, including counts of each answer choice for each question </td> 
+       </tr> 
+       <tr> 
+        <td> 2 </td> 
+        <td> <strong>Responses tab</strong> </td> 
+        <td> Export a list of every individual response with the exact answers to each question </td> 
+       </tr> 
+      </tbody> 
+     </table>
+     <p> To export your data: </p>
+     <dl> 
+      <dt>
+        1 
+      </dt> 
+      <dd>
+        Open the Results page&nbsp;→ by clicking the survey's index card
+      </dd> 
+      <dt>
+        2 
+      </dt> 
+      <dd>
+        As desired, click either Results or Responses&nbsp;→ to export either summaries or individual responses, as explained in the above table
+      </dd> 
+      <dt>
+        3 
+      </dt> 
+      <dd>
+        Click Export data
+      </dd> 
+      <dt>
+        4 
+      </dt> 
+      <dd>
+        Close the Export requested box and return to your Results page
+      </dd> 
+     </dl>
+     <dl> 
+      <dd>
+       <img src="//d33v4339jhl8k0.cloudfront.net/docs/assets/5893d8f5dd8c8e73b3e9452c/images/65bc21fb8e1d144482a9fe62/file-IVMdSz5Ftt.gif"> 
+      </dd> 
+     </dl>
+     <p> <a href="#top">Back to top</a> </p>
+     <hr role="separator"> 
+     <h2 id="share">Sharing Results</h2>
+     <p> Sharing individual charts and responses with stakeholders can be very&nbsp;impactful. Your shared links can be accessed by anyone, even if they aren't a Delighted user, making it easy to disseminate results across your organization! </p>
+     <p> To share: </p>
+     <dl> 
+      <dt>
+        1 
+      </dt> 
+      <dd>
+        Click either the Results or Responses tab
+      </dd> 
+      <dt>
+        2 
+      </dt> 
+      <dd>
+        Scroll to your targeted visualization or individual response card
+      </dd> 
+      <dt>
+        3 
+      </dt> 
+      <dd>
+        Click Share
+      </dd> 
+      <dt>
+        4 
+      </dt> 
+      <dd>
+        Copy the link
+      </dd> 
+      <dt>
+        5 
+      </dt> 
+      <dd>
+        Share the link!
+      </dd> 
+     </dl>
+     <dl> 
+      <dd>
+       <img src="//d33v4339jhl8k0.cloudfront.net/docs/assets/5893d8f5dd8c8e73b3e9452c/images/65bc24767507a5314cbc0e4c/file-AV5x6QcbcK.gif"> 
+      </dd> 
+     </dl>
+     <dl> 
+      <dd> 
+       <section class="callout-yellow dashed"> 
+        <strong>About sharing your results link</strong> 
+        <p> Post your link into messages, social media, email, Slack — you name it. Apps that are oEmbed enabled will create an visual representation of your shared link. Colleagues will instantly see an embedded visualization of your results without needing to click the link. How handy is that! </p>
+        <p> <img src="//d33v4339jhl8k0.cloudfront.net/docs/assets/5893d8f5dd8c8e73b3e9452c/images/64d42c4217822902c5ab92fc/file-XPKYjjCvHe.png" style="width: 275.818px; max-width: 100%; "> </p>
+       </section>
+      </dd> 
+     </dl>
+     <p> <a href="#top">Back to top</a> </p>
+     <hr> 
+     <h2 id="create-report">Creating Reports from your Results pages</h2>
+     <p> There are so many exciting features and reporting options that we’ve written a separate article to tell you all about them.&nbsp;Learn the tips and tricks in <a href="https://surveys-help.delighted.com/article/743-creating-and-sharing-reports">Creating and Sharing Reports</a>. </p>
+     <p> <a href="#top">Back to top</a> </p>
+     <hr> 
+     <script src="https://cdn.weglot.com/weglot.min.js" type="text/javascript">
+					</script>
+     <p> <script type="text/javascript">
+&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;Weglot.initialize({
+        api_key: 'wg_7050858d869bbb003c30898bdab522356'
+    });
+					</script></p>
+    </dl>
+   </dl>
+  </dl>
+ </dl>
+</dl>
+    </article>
+    
+
+    <section class="articleFoot">
+    
+        <i class="icon-contact"></i>
+        <p class="help">Still need help?
+            <a id="sbContact" href="#" class="contactUs" onclick="window.Beacon('open')">Contact Us</a>
+            <a id="sbContactMobile" href="#" class="contactUs" onclick="window.Beacon('open')">Contact Us</a>
+        </p>
+    
+
+    <time class="lu" datetime=2024-02-11 >Last updated on February 11, 2024</time>
+    </section>
+
+                    </div><!--/contentWrapper-->
+                    
+                </section><!--/content-->
+                <aside id="sidebar" class="span3">
+                 
+
+<form action="/search" method="GET" id="searchBar" class="sm" autocomplete="off">
+    
+                    <input type="hidden" name="collectionId" value="64b81c6b49f0be65d185e461"/>
+                    <input type="text" name="query" title="search-query" class="search-query" placeholder="Search" value="" aria-label="Search" />
+                    <button type="submit">
+                        <span class="sr-only">Toggle Search</span>
+                        <i class="icon-search"></i>
+                    </button>
+                    <div id="serp-dd" style="display: none;" class="sb">
+                        <ul class="result">
+                        </ul>
+                    </div>
+                
+</form>
+
+                
+                    <h3>Categories</h3>
+                    <ul class="nav nav-list">
+                    
+                        
+                            <li ><a href="/category/728-0-getting-started-with-delighted-surveys">0. Getting Started  <i class="icon-arrow"></i></a></li>
+                        
+                    
+                        
+                            <li ><a href="/category/729-1-creating-editing-surveys">1. Creating &amp; Editing Surveys  <i class="icon-arrow"></i></a></li>
+                        
+                    
+                        
+                            <li ><a href="/category/730-2-collaborating-previewing-distributing-surveys">2. Publishing &amp; Sending Surveys  <i class="icon-arrow"></i></a></li>
+                        
+                    
+                        
+                            <li  class="active" ><a href="/category/731-3-reporting-analytics">3. Reporting &amp; Analytics  <i class="icon-arrow"></i></a></li>
+                        
+                    
+                        
+                            <li ><a href="/category/732-4-integrating-connecting-surveys">4. Integrating &amp; Connecting Surveys  <i class="icon-arrow"></i></a></li>
+                        
+                    
+                        
+                            <li ><a href="/category/733-5-managing-your-surveys-account">5. Managing your Account  <i class="icon-arrow"></i></a></li>
+                        
+                    
+                    </ul>
+                
+                </aside><!--/span-->
+            </div><!--/row-->
+            <div id="noResults" style="display:none;">No results found</div>
+            <footer>
+                
+
+<p>&copy;
+    
+        <a href="https://surveys-app.delighted.com">Delighted, LLC</a>
+    
+    2024. <span>Powered by <a rel="nofollow noopener noreferrer" href="https://www.helpscout.com/knowledge-base/?co=Delighted%2C+LLC&utm_source=docs&utm_medium=footerlink&utm_campaign=Docs+Branding" target="_blank">Help Scout</a></span>
+    
+        
+    
+</p>
+
+            </footer>
+        </section><!--/.fluid-container-->
+        
+            
+
+<script id="beaconLoader" type="text/javascript">!function(e,t,n){function a(){var e=t.getElementsByTagName("script")[0],n=t.createElement("script");n.type="text/javascript",n.async=!0,n.src="https://beacon-v2.helpscout.net",e.parentNode.insertBefore(n,e)}if(e.Beacon=n=function(t,n,a){e.Beacon.readyQueue.push({method:t,options:n,data:a})},n.readyQueue=[],"complete"===t.readyState)return a();e.attachEvent?e.attachEvent("onload",a):e.addEventListener("load",a,!1)}(window,document,window.Beacon||function(){});</script>
+<script type="text/javascript">window.Beacon('init', '2ba5ac34-f7bf-41fe-b9a0-ea092861b0cf')</script>
+
+<script type="text/javascript">
+    function hashChanged() {
+        var hash = window.location.hash.substring(1); 
+        if (hash === 'contact') {
+            window.Beacon('open')
+        }
+    }
+
+    if (window.location.hash) {
+        hashChanged()
+    }
+
+    window.onhashchange = function () {
+        hashChanged()
+    }
+
+    window.addEventListener('hashchange', hashChanged, false);
+
+</script>
+
+        
+        
+    <script src="//d3eto7onm69fcz.cloudfront.net/assets/javascripts/app3.min.js"></script>
+
+<script>
+// keep iOS links from opening safari
+if(("standalone" in window.navigator) && window.navigator.standalone){
+// If you want to prevent remote links in standalone web apps opening Mobile Safari, change 'remotes' to true
+var noddy, remotes = false;
+document.addEventListener('click', function(event) {
+noddy = event.target;
+while(noddy.nodeName !== "A" && noddy.nodeName !== "HTML") {
+noddy = noddy.parentNode;
+}
+
+if('href' in noddy && noddy.href.indexOf('http') !== -1 && (noddy.href.indexOf(document.location.host) !== -1 || remotes)){
+event.preventDefault();
+document.location.href = noddy.href;
+}
+
+},false);
+}
+</script>
+        
+    </body>
+</html>
+
+

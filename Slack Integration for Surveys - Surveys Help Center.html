@@ -1,0 +1,794 @@
+
+
+<!DOCTYPE html>
+<html>
+    
+<head>
+    <meta charset="utf-8"/>
+    <title>Slack Integration for Surveys - Surveys Help Center</title>
+    <meta name="viewport" content="width=device-width, maximum-scale=1"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="format-detection" content="telephone=no">
+    <meta name="description" content="In this article About the Surveys integration for Slack. Connecting and authenticating the Slack integration. Connecting to Surveys and setting up rules. Sendin"/>
+    <meta name="author" content="Delighted, LLC"/>
+    <link rel="canonical" href="https://surveys-help.helpscoutdocs.com/article/745-integrating-with-slack"/>
+    
+        
+   
+            <meta name="twitter:card" content="summary"/>
+            <meta name="twitter:title" content="Slack Integration for Surveys" />
+            <meta name="twitter:description" content="In this article About the Surveys integration for Slack. Connecting and authenticating the Slack integration. Connecting to Surveys and setting up rules. Sendin"/>
+
+
+    
+
+    
+        <link rel="stylesheet" href="//d3eto7onm69fcz.cloudfront.net/assets/stylesheets/launch-1708845322627.css">
+    
+    <style>
+        body { background: #f7f7f6; }
+        .navbar .navbar-inner { background: #f7f7f6; }
+        .navbar .nav li a, 
+        .navbar .icon-private-w  { color: #0f181e; }
+        .navbar .brand, 
+        .navbar .nav li a:hover, 
+        .navbar .nav li a:focus, 
+        .navbar .nav .active a, 
+        .navbar .nav .active a:hover, 
+        .navbar .nav .active a:focus  { color: #4e73fa; }
+        .navbar a:hover .icon-private-w, 
+        .navbar a:focus .icon-private-w, 
+        .navbar .active a .icon-private-w, 
+        .navbar .active a:hover .icon-private-w, 
+        .navbar .active a:focus .icon-private-w { color: #4e73fa; }
+        #serp-dd .result a:hover,
+        #serp-dd .result > li.active,
+        #fullArticle strong a,
+        #fullArticle a strong,
+        .collection a,
+        .contentWrapper a,
+        .most-pop-articles .popArticles a,
+        .most-pop-articles .popArticles a:hover span,
+        .category-list .category .article-count,
+        .category-list .category:hover .article-count { color: #4e73fa; }
+        #fullArticle, 
+        #fullArticle p, 
+        #fullArticle ul, 
+        #fullArticle ol, 
+        #fullArticle li, 
+        #fullArticle div, 
+        #fullArticle blockquote, 
+        #fullArticle dd, 
+        #fullArticle table { color:#0f181e; }
+    </style>
+    
+        <link rel="stylesheet" href="//delighted-static.s3.amazonaws.com/help-scout-docs/index-331378470b1f58d98f2b8ac49dd01f6c.css">
+    
+    <link rel="apple-touch-icon-precomposed" href="//d33v4339jhl8k0.cloudfront.net/docs/assets/5893d8f5dd8c8e73b3e9452c/images/64b8200957a4e8315e721805/apple-touch-icon-152-precomposed.png">
+    <link rel="shortcut icon" type="image/png" href="//d33v4339jhl8k0.cloudfront.net/docs/assets/5893d8f5dd8c8e73b3e9452c/images/64b82009d48f7f58ce212c04/favicon.ico">
+    <!--[if lt IE 9]>
+    
+        <script src="//d3eto7onm69fcz.cloudfront.net/assets/javascripts/html5shiv.min.js"></script>
+    
+    <![endif]-->
+    
+        <script type="application/ld+json">
+        {"@context":"https://schema.org","@type":"WebSite","url":"https://surveys-help.helpscoutdocs.com","potentialAction":{"@type":"SearchAction","target":"https://surveys-help.helpscoutdocs.com/search?query={query}","query-input":"required name=query"}}
+        </script>
+    
+        <script type="application/ld+json">
+        {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Surveys Help Center","item":"https://surveys-help.helpscoutdocs.com"},{"@type":"ListItem","position":2,"name":"Delighted Surveys","item":"https://surveys-help.helpscoutdocs.com/collection/725-delighted-surveys"},{"@type":"ListItem","position":3,"name":"Slack Integration for Surveys","item":"https://surveys-help.helpscoutdocs.com/article/745-integrating-with-slack"}]}
+        </script>
+    
+    
+        <style>
+  #consent_blackbar {
+    position: fixed !important;
+    bottom: 0;
+    border-top: 1px solid #dddddd !important;
+    background-color: #ffffff !important;
+    z-index: 9999;
+  }
+  body>:not(#beacon-container) button.truste-button1, body>:not(#beacon-container) button.truste-button2 {
+    background: none !important;
+    border: 1px solid #e0e0d9 !important;
+    border-radius: 6px !important;
+    font-size: 14px !important;
+    padding: 5px !important;
+    background-color: white !important;
+    margin: 10px 0 !important;
+  }
+  body>:not(#beacon-container) .truste-left img{
+    margin-bottom: -5px !important;
+  }
+  .text-content {
+    padding-bottom: 10px !important;
+  }
+  #truste-consent-text {
+    font-size: 14px !important;
+    line-height: 20px !important;
+  }
+  #truste-consent-buttons button,
+  #truste-show-consent {
+    background: #1E94E8 !important;
+    color: #ffffff !important;
+    font-family: "Lausanne", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+  }
+</style>
+<script type="text/javascript">
+  (function() {
+    function customNavigationScript() {
+      let homeLink = document.getElementsByClassName("brand");
+      while (homeLink[0].firstChild) {
+        homeLink[0].removeChild(homeLink[0].firstChild);
+      }
+      let sp2 = document.getElementById("home");
+      sp2.innerHTML = '<a class="current surveys" href="https://surveys-help.delighted.com/">Surveys</a>';
+      let sp3 = document.getElementById("contact");
+      $(".search-query").attr("placeholder", "Search Surveys");
+      let parentDiv = document.getElementById("home").parentNode;
+      let gpDiv = parentDiv.parentNode;
+      let liTemplates = document.createElement('li');
+      liTemplates.id = 'templates';
+      liTemplates.innerHTML = '<a class="templates" href="https://help.delighted.com">Templates</a>';
+      let liPricing = document.createElement('li');
+      liPricing.id = 'pricing';
+      liPricing.innerHTML = '<a href="https://delighted.com/pricing">Pricing</a>';
+      let liSignin = document.createElement('li');
+      liSignin.id = 'signin';
+      liSignin.innerHTML = '<a href="https://app.delighted.com/signin" target="_blank" rel="noreferrer">Sign in</a>';
+      parentDiv.insertBefore(liTemplates, sp3);
+      parentDiv.insertBefore(liPricing, sp3);
+      parentDiv.appendChild(liSignin, sp3);
+      gpDiv.classList.add("show");
+    }
+    if (window.addEventListener) {
+      window.addEventListener("load", customNavigationScript, false);
+    } else if (window.attachEvent) {
+      window.attachEvent("onload", customNavigationScript);
+    }
+  })();
+</script>
+<script>
+  window.heap=window.heap||[],heap.load=function(e,t){window.heap.appid=e,window.heap.config=t=t||{};var r=t.forceSSL||"https:"===document.location.protocol,a=document.createElement("script");a.type="text/javascript",a.async=!0,a.src=(r?"https:":"http:")+"//cdn.heapanalytics.com/js/heap-"+e+".js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(a,n);for(var o=function(e){return function(){heap.push([e].concat(Array.prototype.slice.call(arguments,0)))}},p=["addEventProperties","addUserProperties","clearEventProperties","identify","removeEventProperty","setEventProperties","track","unsetEventProperty"],c=0;c<p.length;c++)heap[p[c]]=o(p[c])};
+  heap.load("1728408355");
+  heap.addEventProperties({
+    "Screen Dimensions": window.screen.width + " x " + window.screen.height,
+    "Screen Pixel Ratio": window.devicePixelRatio,
+    "Window Width": window.innerWidth,
+    "Window Height": window.innerHeight
+  });
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5HVL0RGW2V"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-5HVL0RGW2V');
+</script>
+<script>
+  var initHighlighting = function() {
+    if (initHighlighting.called) return;
+    initHighlighting.called = true;
+    var blocks = document.querySelectorAll("pre.code");
+    for (var i = 0; i < blocks.length; i++) hljs.highlightBlock(blocks[i]);
+  };
+  addEventListener("DOMContentLoaded", initHighlighting, false);
+  addEventListener("load", initHighlighting, false);
+</script>
+<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+<script type="text/javascript" src="https://cdn.weglot.com/weglot.min.js"></script>
+<script>
+  Weglot.initialize({
+    api_key: 'wg_7050858d869bbb003c30898bdab522356',
+    switchers: [
+    {
+    button_style: {
+        full_name: true,
+        with_name: true,
+        is_dropdown: true,
+        with_flags: true,
+        flag_type: "circle"
+    },
+    location: {
+        target: "footer",
+        sibling: null
+        }
+    }
+  ]
+  });
+</script>
+<script>
+setTimeout(function() {
+  var trustarcDiv = document.createElement("div");
+  trustarcDiv.id = 'consent_blackbar';
+  document.body.appendChild(trustarcDiv);
+  }, 4000);
+</script>
+<script>
+  setTimeout(function() {
+    var headID = document.getElementsByTagName("head")[0];
+    var newScript = document.createElement('script');
+    newScript.src = 'https://consent.trustarc.com/notice?noticeType=bb&domain=sap-delighted.com&c=teconsent&js=nj&text=true&privacypolicylink=https$3A$2F$2Fapp.delighted.com$2Fprivacy';
+    headID.appendChild(newScript);
+  }, 5000);
+</script>
+<script type="text/javascript">
+  !function(e,t,r,n){if(!e[n]){for(var a=e[n]=[],i=["survey","reset","config","init","set","get","event","identify","track","page","screen","group","alias"],s=0;s<i.length;s++){var c=i[s];a[c]=a[c]||function(e){return function(){var t=Array.prototype.slice.call(arguments);a.push([e,t])}}(c)}a.SNIPPET_VERSION="1.0.1";var o=t.createElement("script");o.type="text/javascript",o.async=!0,o.src="https://d2yyd1h5u9mauk.cloudfront.net/integrations/web/v1/library/"+r+"/"+n+".js";var p=t.getElementsByTagName("script")[0];p.parentNode.insertBefore(o,p)}}(window,document,"s6pAwY06zTnyJR2t","delightedCes");
+  delightedCes.survey({properties:{site:"Surveys"}
+  });
+</script>
+
+    
+</head>
+    
+    <body>
+        
+<header id="mainNav" class="navbar">
+    <div class="navbar-inner">
+        <div class="container-fluid">
+            <a class="brand" href="https://surveys-app.delighted.com">
+            
+                <span>Surveys Help Center</span>
+            
+            </a>
+            
+                <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                    <span class="sr-only">Toggle Navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            
+            <div class="nav-collapse collapse">
+                <nav role="navigation"><!-- added for accessibility -->
+                <ul class="nav">
+                    
+                        <li id="home"><a href="/">Help Center <b class="caret"></b></a></li>
+                    
+                    
+                    
+                        <li id="contact"><a href="#" class="contactUs" onclick="window.Beacon('open')">Contact</a></li>
+                        <li id="contactMobile"><a href="#" class="contactUs" onclick="window.Beacon('open')">Contact</a></li>
+                    
+                </ul>
+                </nav>
+            </div><!--/.nav-collapse -->
+        </div><!--/container-->
+    </div><!--/navbar-inner-->
+</header>
+        <section id="contentArea" class="container-fluid">
+            <div class="row-fluid">
+                <section id="main-content" class="span9">
+                    <div class="contentWrapper">
+                        
+    
+    <article id="fullArticle">
+        <h1 class="title">Slack Integration for Surveys</h1>
+    
+        <a href="javascript:window.print()" class="printArticle" title="Print this article" aria-label="Print this Article"><i class="icon-print"></i></a>
+        <h3>In this article</h3>
+<ul> 
+ <li><a href="#overview">About the Surveys integration for Slack.</a></li> 
+ <li><a href="#first-setup">Connecting and authenticating the Slack integration.</a></li> 
+ <li><a href="#new-events">Connecting to Surveys and setting up rules.</a></li> 
+ <li><a href="#private">Sending responses to Private channels.</a></li> 
+ <li><a href="#digest">When will my Slack digest be sent?</a> </li> 
+ <li><a href="#manage">Editing, testing and deleting rules</a></li>
+</ul>
+<p> Suggested next article: <a href="https://surveys-help.delighted.com/article/741-publishing-and-sending-your-surveys">Publishing and Sending Surveys.</a></p> 
+<div> 
+ <hr> 
+</div>
+<h2 id="overview">About the Surveys integration for Slack</h2>
+<p> The Slack Integration sends&nbsp;responses from&nbsp;Delighted&nbsp;Surveys directly to the Slack channels you select — making it easy to share feedback with your entire team.&nbsp;</p>
+<p> You can set up two very different&nbsp;Slack channel&nbsp;notifications:</p> 
+<table> 
+ <tbody> 
+  <tr> 
+  </tr> 
+  <tr> 
+   <td> 1 </td> 
+   <td> <strong><a href="#response">Response</a></strong> </td> 
+   <td> Pass over a survey Response as soon as it is submitted — provided it meets the conditions you set </td> 
+  </tr> 
+  <tr> 
+   <td> 2 </td> 
+   <td> <strong><a href="#event">Event</a></strong> </td> 
+   <td> Send a summary, known as a Digest, of the feedback you've collected over a selected period — ex. day, week, or month. See <a href="#digest">When will my Slack digest be sent?</a> </td> 
+  </tr> 
+ </tbody> 
+</table>
+<dl> 
+ <dd> 
+  <img src="//d33v4339jhl8k0.cloudfront.net/docs/assets/5893d8f5dd8c8e73b3e9452c/images/659f44a45428390b5eedbebe/file-V2zSB0RevV.png" style="width: 559px;">
+ </dd>
+</dl>
+<p> <strong>About testing your Slack channel</strong></p>
+<p> Interested in an example? Click Test&nbsp;next to any new event you configure. Delighted will send an example that mirrors the questions and response formats associated with the&nbsp;survey you've&nbsp;integrated.</p>
+<dl> 
+ <dd> 
+  <img src="//d33v4339jhl8k0.cloudfront.net/docs/assets/5893d8f5dd8c8e73b3e9452c/images/65075e889446233b93527cf4/file-S20lBc11Mj.png"> 
+ </dd>
+</dl>
+<p> Here’s a sample response notification in Slack.</p>
+<dl> 
+ <dd> 
+  <img src="//d33v4339jhl8k0.cloudfront.net/docs/assets/5893d8f5dd8c8e73b3e9452c/images/65075bda4baf3c02bf198069/file-q0MY5z35wF.png" style="width: 392px;"> 
+ </dd>
+</dl>
+<p> <a href="#top">Back to top</a></p>
+<hr>
+<h2 id="first-setup">Connecting and authenticating the Slack integration</h2>
+<p> Get your results flowing into Slack quickly with this simple setup and authentication routine.&nbsp;</p>
+<dl> 
+ <dd> 
+  <section class="callout-yellow dashed"> 
+   <p> <strong>Adding multiple Slack Events</strong> </p>
+   <p> Return back to the Integration page at any time to add multiple Slack events — and&nbsp;to make edits and test your Delighted Surveys connection to you Slack channels. See <a href="#manage">Editing, testing, and deleting rules</a>. </p>
+  </section>
+ </dd>
+</dl>
+<p> To complete the initial setup and authentication of the Slack integration:</p>
+<dl> 
+ <dt>
+  1
+ </dt> 
+ <dd>
+  Click Integrations
+ </dd> 
+ <dt>
+  2
+ </dt> 
+ <dd>
+  Select Slack
+ </dd>
+ <dd>
+  <img src="//d33v4339jhl8k0.cloudfront.net/docs/assets/5893d8f5dd8c8e73b3e9452c/images/65c97ea455e4ed3089c15d41/file-T3XiSBGh16.png" style="width: 366px;">
+ </dd> 
+ <dt>
+  3
+ </dt> 
+ <dd>
+  Click Connect
+ </dd>
+ <dd>
+  <img src="//d33v4339jhl8k0.cloudfront.net/docs/assets/5893d8f5dd8c8e73b3e9452c/images/65c97f20657300085963153e/file-Z9X1knoQ5S.png">
+ </dd> 
+ <dt>
+  4
+ </dt> 
+ <dd>
+   You’ll be redirected to Slack. If you’re not already signed in, do so now 
+ </dd> 
+ <dt>
+  5
+ </dt> 
+ <dd>
+  Make sure the appropriate Slack instance (company name) is listed on the screen. If not → change teams and choose the correct one
+ </dd> 
+ <dt>
+  6
+ </dt> 
+ <dd>
+  Review the information on the authorization screen → and click Allow
+ </dd>
+ <dd>
+  <img src="//d33v4339jhl8k0.cloudfront.net/docs/assets/5893d8f5dd8c8e73b3e9452c/images/6507565d9446233b93527cf1/file-Mm1Ci4m94V.png" style="width: 435px;"> 
+ </dd> 
+ <dd> 
+  <section class="callout-yellow dashed"> 
+   <strong>About your Connections</strong>
+   <br> 
+   <br> After you've connected to Slack, you’ll be directed back to Delighted Surveys. In the Connections section, you'll see all the 
+   <a href="https://surveys-help.delighted.com/article/741-publishing-and-sending-your-surveys">published</a> surveys currently in your Delighted Surveys account.
+   <br> 
+   <br> To see how to connect your published Surveys using Slack rules, jump down to the next section. 
+   <dd>
+    <img src="//d33v4339jhl8k0.cloudfront.net/docs/assets/5893d8f5dd8c8e73b3e9452c/images/65c97f4a5d8fe340f3481937/file-pHihyLrPhh.png">
+   </dd>
+  </section>
+ </dd>
+</dl>
+<p> <a href="#top">Back to top</a></p>
+<hr>
+<h2 id="new-events">Connecting to Surveys and setting up rules</h2>
+<p> After the initial setup, adding new rules and syncing additional feedback to your Slack channels is routine.&nbsp;&nbsp;</p>
+<p> To add surveys and new Slack rules:</p>
+<dl> 
+ <dt>
+  1
+ </dt> 
+ <dd>
+  Click Edit → appearing adjacent an existing 
+  <a href="https://surveys-help.delighted.com/article/741-publishing-and-sending-your-surveys">published</a> survey&nbsp;
+ </dd>
+ <dd>
+  <img src="//d33v4339jhl8k0.cloudfront.net/docs/assets/5893d8f5dd8c8e73b3e9452c/images/65c97f9455e4ed3089c15d42/file-zpvQlXw1ZU.png"> 
+ </dd> 
+ <dt>
+  2
+ </dt> 
+ <dd>
+  Select Add a rule
+ </dd>
+ <dd>
+  <img src="//d33v4339jhl8k0.cloudfront.net/docs/assets/5893d8f5dd8c8e73b3e9452c/images/6570a54521ef744662f0329e/file-HdeNjiCABh.png"> 
+ </dd> 
+ <dt>
+  3
+ </dt> 
+ <dd>
+  Choose either a 
+  <strong>Response</strong>-based rule or an 
+  <strong>Event</strong>-based rule&nbsp;→ and select your requirements. Here are the details:
+ </dd> 
+ <dd> 
+  <table> 
+   <tbody> 
+    <tr> 
+    </tr> 
+    <tr> 
+     <td> <h4 id="response">Response</h4> </td> 
+     <td> <p> <strong>Question</strong> — Choose whether you want all responses to trigger a notification, or just responses with a specific answer to one question </p> <p> <strong>With response of</strong> — If you choose a specific question in the option above, you'll be able to pick the answer choice that will trigger a notification here </p> <p> <strong>Send to channel</strong> — Type the channel you want to send notifications to&nbsp;→ (ex. #my-channel) </p> <p> <img src="//d33v4339jhl8k0.cloudfront.net/docs/assets/5893d8f5dd8c8e73b3e9452c/images/6570a630ef1be44733171bec/file-Uzbcl0ThIY.png" style="width: 255px;"> </p> </td> 
+    </tr> 
+    <tr> 
+     <td> <h4 id="event">Event</h4> </td> 
+     <td> <p> <strong>Type</strong> — This will be Digest </p> <p> <strong>Frequency</strong> — Choose Daily, Weekly, or Monthly </p> <p> <strong>Send to channel</strong> — Type the channel you want to send notifications to&nbsp;→ (ex. #my-channel) </p> <p> <img src="//d33v4339jhl8k0.cloudfront.net/docs/assets/5893d8f5dd8c8e73b3e9452c/images/6570a66021ef744662f0329f/file-SCbDpc7gZN.png" style="width: 256px;"> </p> </td> 
+    </tr> 
+   </tbody> 
+  </table>
+ </dd> 
+ <dt>
+  4
+ </dt> 
+ <dd>
+   Make your selections&nbsp;→ enter your Slack channel&nbsp;→&nbsp;and click Save rule
+ </dd>
+ <dd> 
+  <ul> 
+   <li> <strong>Response&nbsp;</strong> </li> 
+   <li> <strong>Question</strong>&nbsp;— "How did you hear about us?" </li> 
+   <li> <strong>With response of&nbsp;</strong>— "Instagram" </li> 
+   <li> <strong>Send to channel</strong>&nbsp;— "#slack-testing" </li> 
+  </ul>
+ </dd>
+ <dd>
+  <img src="//d33v4339jhl8k0.cloudfront.net/docs/assets/5893d8f5dd8c8e73b3e9452c/images/65a00f0f5428390b5eedbf63/file-iNOeSUcARX.gif"> 
+ </dd> 
+ <dd> 
+  <section class="callout-yellow dashed">
+    Your channel name should look similar to 
+   <strong>#channel-name</strong>. Be sure to include the exact spelling. 
+  </section>
+ </dd> 
+ <dt>
+  5
+ </dt> 
+ <dd>
+  Click the&nbsp;Disabled toggle to enable the integration&nbsp;→ which turns green, as in Go!
+ </dd> 
+ <dt>
+  6
+ </dt> 
+ <dd>
+  Click Test&nbsp; → to test the link to Slack
+ </dd>
+ <dd>
+  <img src="//d33v4339jhl8k0.cloudfront.net/docs/assets/5893d8f5dd8c8e73b3e9452c/images/6570a83321ef744662f032a2/file-2jZnP3fCOp.png">
+ </dd> 
+ <dt>
+  7
+ </dt> 
+ <dd>
+  Peek at Slack and see what came through! (This will be test data, not real data from your survey.)
+ </dd>
+ <dd>
+  <img src="//d33v4339jhl8k0.cloudfront.net/docs/assets/5893d8f5dd8c8e73b3e9452c/images/6570a8891f35360c6a1f0497/file-IKweJpeNIQ.png">&nbsp;
+ </dd>
+</dl>
+<p> <a href="#top">Back to top</a></p>
+<hr>
+<h2 id="private">Sending responses to Private channels</h2>
+<p> In certain scenarios, the type of feedback you're collecting may be sensitive (ex. internal employee feedback). Syncing Surveys feedback to a Private channel in Slack can be a good bet.</p>
+<p> In order to sync feedback, go into each private channel in Slack and add the Delighted app. (Look below for a set of instructions to get you started.)</p>
+<ul> 
+ <li><em>This process must be repeated for each private channel</em>.</li>
+</ul>
+<p> To sync feedback to a Private Channel:</p>
+<dl> 
+ <dt>
+  1
+ </dt> 
+ <dd>
+  Navigate to your private channel in Slack
+ </dd> 
+ <dt>
+  2
+ </dt> 
+ <dd>
+  Click on the profile image / count of channel members in the upper right-hand corner of the channel
+ </dd>
+ <dd> 
+  <img src="//d33v4339jhl8k0.cloudfront.net/docs/assets/5893d8f5dd8c8e73b3e9452c/images/64e501cab0995a5390539493/file-nHfhLsfTqK.jpg" style="background-color: initial; width: 592px;"> 
+ </dd> 
+ <dt>
+  3
+ </dt> 
+ <dd>
+  Click Integrations
+ </dd> 
+ <dt>
+  4
+ </dt> 
+ <dd>
+  Click Add an App
+ </dd> 
+ <dt>
+  5
+ </dt> 
+ <dd>
+  Search for Delighted
+ </dd> 
+ <dt>
+  6
+ </dt> 
+ <dd>
+  Click Add&nbsp;→ to add the Delighted app to your private channel
+ </dd>
+</dl>
+<p> <a href="#top">Back to top</a></p>
+<hr>
+<h2 id="digest">When will my Slack digest be sent?&nbsp;</h2>
+<p> When you turn on your Slack digest, a sample digest will be sent the following day. Future digests will be sent even if there are no new responses to report.</p>
+<p> Specifically, digests will sent:</p>
+<ul> 
+ <li>Every morning, if you chose <strong>Daily</strong></li> 
+ <li>Every Monday, if you chose <strong>Weekly</strong></li> 
+ <li>The first weekday of the month, if you chose <strong>Monthly</strong></li>
+</ul>
+<p> <a href="#top">Back to top</a></p>
+<hr>
+<h2 id="manage">Editing, testing and deleting rules</h2>
+<p> To add and test additional Slack digests and rules:</p>
+<dl> 
+ <dt>
+  1
+ </dt> 
+ <dd>
+  Reopen your Slack integration&nbsp;→ and click Edit&nbsp;
+ </dd> 
+ <dt>
+  2
+ </dt> 
+ <dd>
+  Select Add a rule&nbsp;→ and choose&nbsp;Event
+ </dd> 
+ <dt>
+  3
+ </dt> 
+ <dd>
+  Make your Frequency or Question selections
+ </dd> 
+ <dt>
+  4
+ </dt> 
+ <dd>
+  Enter your Slack channel&nbsp;→&nbsp;and click Save rule
+ </dd>
+ <dd>
+  <br> 
+  <img src="//d33v4339jhl8k0.cloudfront.net/docs/assets/5893d8f5dd8c8e73b3e9452c/images/659f6f547273d90e4339b30f/file-ulfEPOzoEh.gif"> 
+ </dd> 
+ <dt>
+  5
+ </dt> 
+ <dd>
+  Click Test&nbsp;→ and sample your new Slack rule to see what your Digest or Response event will look like going forward
+ </dd>
+ <dd>
+  <img src="//d33v4339jhl8k0.cloudfront.net/docs/assets/5893d8f5dd8c8e73b3e9452c/images/659f69862f0e59648a559c52/file-IKC0vIk16k.png">
+ </dd>
+</dl>
+<p> To edit Slack digest and other Slack rule settings:&nbsp;</p>
+<dl> 
+ <dt>
+  1
+ </dt> 
+ <dd>
+   Reopen your Slack integration&nbsp;→ and select Edit&nbsp; 
+ </dd> 
+ <dt>
+  2
+ </dt> 
+ <dd>
+   &nbsp;Choose&nbsp;Edit&nbsp;→ to the right of the survey's tile 
+ </dd>
+ <dd> 
+ </dd> 
+ <dt>
+  3
+ </dt> 
+ <dd>
+  Select Edit&nbsp;→ on the event's tile
+ </dd> 
+ <dt>
+  4
+ </dt> 
+ <dd>
+   Change your Frequency or Question response selections →&nbsp;and click Save rule
+ </dd>
+ <dd> 
+  <img src="//d33v4339jhl8k0.cloudfront.net/docs/assets/5893d8f5dd8c8e73b3e9452c/images/659f714cbaa1964909075163/file-LVJeWqt6Bf.gif"> 
+ </dd>
+</dl>
+<p> To delete a Slack digest or Response event:</p>
+<dl> 
+ <dt>
+  1
+ </dt> 
+ <dd>
+   Reopen your Slack integration&nbsp;→ and choose Edit&nbsp; 
+ </dd> 
+ <dt>
+  2
+ </dt> 
+ <dd>
+  Select X&nbsp;→ at the right of the rule
+ </dd> 
+ <dt>
+  3
+ </dt> 
+ <dd>
+  Choose&nbsp;Yes, delete rule
+ </dd>
+ <dd>
+  <img src="//d33v4339jhl8k0.cloudfront.net/docs/assets/5893d8f5dd8c8e73b3e9452c/images/659f6c8f5428390b5eedbeeb/file-yFueDg2kda.gif">
+ </dd>
+</dl>
+<p> <a href="#top">Back to top</a></p>
+<hr>
+<script src="https://cdn.weglot.com/weglot.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;Weglot.initialize({
+        api_key: 'wg_7050858d869bbb003c30898bdab522356'
+    });
+</script>
+    </article>
+    
+
+    <section class="articleFoot">
+    
+        <i class="icon-contact"></i>
+        <p class="help">Still need help?
+            <a id="sbContact" href="#" class="contactUs" onclick="window.Beacon('open')">Contact Us</a>
+            <a id="sbContactMobile" href="#" class="contactUs" onclick="window.Beacon('open')">Contact Us</a>
+        </p>
+    
+
+    <time class="lu" datetime=2024-02-12 >Last updated on February 12, 2024</time>
+    </section>
+
+                    </div><!--/contentWrapper-->
+                    
+                </section><!--/content-->
+                <aside id="sidebar" class="span3">
+                 
+
+<form action="/search" method="GET" id="searchBar" class="sm" autocomplete="off">
+    
+                    <input type="hidden" name="collectionId" value="64b81c6b49f0be65d185e461"/>
+                    <input type="text" name="query" title="search-query" class="search-query" placeholder="Search" value="" aria-label="Search" />
+                    <button type="submit">
+                        <span class="sr-only">Toggle Search</span>
+                        <i class="icon-search"></i>
+                    </button>
+                    <div id="serp-dd" style="display: none;" class="sb">
+                        <ul class="result">
+                        </ul>
+                    </div>
+                
+</form>
+
+                
+                    <h3>Categories</h3>
+                    <ul class="nav nav-list">
+                    
+                        
+                            <li ><a href="/category/728-0-getting-started-with-delighted-surveys">0. Getting Started  <i class="icon-arrow"></i></a></li>
+                        
+                    
+                        
+                            <li ><a href="/category/729-1-creating-editing-surveys">1. Creating &amp; Editing Surveys  <i class="icon-arrow"></i></a></li>
+                        
+                    
+                        
+                            <li ><a href="/category/730-2-collaborating-previewing-distributing-surveys">2. Publishing &amp; Sending Surveys  <i class="icon-arrow"></i></a></li>
+                        
+                    
+                        
+                            <li ><a href="/category/731-3-reporting-analytics">3. Reporting &amp; Analytics  <i class="icon-arrow"></i></a></li>
+                        
+                    
+                        
+                            <li  class="active" ><a href="/category/732-4-integrating-connecting-surveys">4. Integrating &amp; Connecting Surveys  <i class="icon-arrow"></i></a></li>
+                        
+                    
+                        
+                            <li ><a href="/category/733-5-managing-your-surveys-account">5. Managing your Account  <i class="icon-arrow"></i></a></li>
+                        
+                    
+                    </ul>
+                
+                </aside><!--/span-->
+            </div><!--/row-->
+            <div id="noResults" style="display:none;">No results found</div>
+            <footer>
+                
+
+<p>&copy;
+    
+        <a href="https://surveys-app.delighted.com">Delighted, LLC</a>
+    
+    2024. <span>Powered by <a rel="nofollow noopener noreferrer" href="https://www.helpscout.com/knowledge-base/?co=Delighted%2C+LLC&utm_source=docs&utm_medium=footerlink&utm_campaign=Docs+Branding" target="_blank">Help Scout</a></span>
+    
+        
+    
+</p>
+
+            </footer>
+        </section><!--/.fluid-container-->
+        
+            
+
+<script id="beaconLoader" type="text/javascript">!function(e,t,n){function a(){var e=t.getElementsByTagName("script")[0],n=t.createElement("script");n.type="text/javascript",n.async=!0,n.src="https://beacon-v2.helpscout.net",e.parentNode.insertBefore(n,e)}if(e.Beacon=n=function(t,n,a){e.Beacon.readyQueue.push({method:t,options:n,data:a})},n.readyQueue=[],"complete"===t.readyState)return a();e.attachEvent?e.attachEvent("onload",a):e.addEventListener("load",a,!1)}(window,document,window.Beacon||function(){});</script>
+<script type="text/javascript">window.Beacon('init', '2ba5ac34-f7bf-41fe-b9a0-ea092861b0cf')</script>
+
+<script type="text/javascript">
+    function hashChanged() {
+        var hash = window.location.hash.substring(1); 
+        if (hash === 'contact') {
+            window.Beacon('open')
+        }
+    }
+
+    if (window.location.hash) {
+        hashChanged()
+    }
+
+    window.onhashchange = function () {
+        hashChanged()
+    }
+
+    window.addEventListener('hashchange', hashChanged, false);
+
+</script>
+
+        
+        
+    <script src="//d3eto7onm69fcz.cloudfront.net/assets/javascripts/app3.min.js"></script>
+
+<script>
+// keep iOS links from opening safari
+if(("standalone" in window.navigator) && window.navigator.standalone){
+// If you want to prevent remote links in standalone web apps opening Mobile Safari, change 'remotes' to true
+var noddy, remotes = false;
+document.addEventListener('click', function(event) {
+noddy = event.target;
+while(noddy.nodeName !== "A" && noddy.nodeName !== "HTML") {
+noddy = noddy.parentNode;
+}
+
+if('href' in noddy && noddy.href.indexOf('http') !== -1 && (noddy.href.indexOf(document.location.host) !== -1 || remotes)){
+event.preventDefault();
+document.location.href = noddy.href;
+}
+
+},false);
+}
+</script>
+        
+    </body>
+</html>
+
+
